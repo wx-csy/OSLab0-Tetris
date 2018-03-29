@@ -1,6 +1,8 @@
 #include <am.h>
 #include <amdev.h>
+#include "stdio.h"
 
+/*
 // TODO: implement necessary libraries
 int printf(const char *fmt, ...) {
   for (; *fmt; fmt++) {
@@ -8,6 +10,7 @@ int printf(const char *fmt, ...) {
   }
   return 0;
 }
+*/
 
 static void input_test(_Device *dev);
 static void timer_test(_Device *dev);
