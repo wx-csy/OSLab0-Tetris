@@ -1,6 +1,6 @@
+#include "stdio.h"
 #include <am.h>
 #include <amdev.h>
-#include "stdio.h"
 
 /*
 // TODO: implement necessary libraries
