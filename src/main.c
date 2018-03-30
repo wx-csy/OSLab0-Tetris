@@ -2,15 +2,9 @@
 #include <am.h>
 #include <amdev.h>
 
-/*
-// TODO: implement necessary libraries
-int printf(const char *fmt, ...) {
-  for (; *fmt; fmt++) {
-    _putc(*fmt);
-  }
-  return 0;
-}
-*/
+#ifdef __stdio
+# error !!!
+#endif
 
 static void input_test(_Device *dev);
 static void timer_test(_Device *dev);
