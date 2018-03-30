@@ -10,7 +10,7 @@
 #define ZERO_PADDING     0x10
 
 static inline int _get_behavior_modifier
-    (const char **pfmt) {
+    (const char *restrict *pfmt) {
   int behavior = 0;
   while (**pfmt) {
     switch (**pfmt) {
@@ -27,7 +27,7 @@ static inline int _get_behavior_modifier
 }
 
 static inline int _get_integer(int *result) {
-
+  *result = 0;
 }
 
 int printf(const char *restrict format, ...) {
