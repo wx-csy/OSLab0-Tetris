@@ -14,11 +14,11 @@ static inline int _get_behavior_modifier
   int behavior = 0;
   while (**pfmt) {
     switch (**pfmt) {
-      case '-': *behavior |= LEFT_JUSTIFIED;     break;
-      case '+': *behavior |= ALWAYS_SIGNED;      break;
-      case ' ': *behavior |= SPACE_PREPENDED;    break;
-      case '#': *behavior |= ALTERNATIVE_FORM;   break;
-      case '0': *behavior |= ZERO_PADDING;       break;
+      case '-': behavior |= LEFT_JUSTIFIED;     break;
+      case '+': behavior |= ALWAYS_SIGNED;      break;
+      case ' ': behavior |= SPACE_PREPENDED;    break;
+      case '#': behavior |= ALTERNATIVE_FORM;   break;
+      case '0': behavior |= ZERO_PADDING;       break;
       default:  return behavior;
     }
     (*pfmt)++;
