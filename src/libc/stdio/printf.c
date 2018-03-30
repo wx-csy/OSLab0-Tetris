@@ -104,5 +104,3 @@ ret:
   return written;
 }
 
-#endif
-
