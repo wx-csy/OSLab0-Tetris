@@ -2,10 +2,6 @@
 #include <am.h>
 #include <amdev.h>
 
-#ifdef __stdio
-# error !!!
-#endif
-
 static void input_test(_Device *dev);
 static void timer_test(_Device *dev);
 static void video_test(_Device *dev);

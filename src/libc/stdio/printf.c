@@ -3,16 +3,42 @@
 #include <am.h>
 
 /* printf behavior modifier */
-#define __PRINTF_LEFT_JUSTIFIED   0x1
-#define __PRINTF_ALWAYS_SIGNED    0x2
-#define __PRINTF_ALTERNATIVE_FORM 0x4
-#define __PRINTF_ZERO_PADDING     0x8
+#define LEFT_JUSTIFIED   0x1
+#define ALWAYS_SIGNED    0x2
+#define SPACE_PREPENDED  0x4
+#define ALTERNATIVE_FORM 0x8
+#define ZERO_PADDING     0x10
+
+static inline int _get_behavior_modifier
+    (const char **pfmt) {
+  int behavior = 0;
+  while (**pfmt) {
+    switch (**pfmt) {
+      case '-': *behavior |= LEFT_JUSTIFIED;     break;
+      case '+': *behavior |= ALWAYS_SIGNED;      break;
+      case ' ': *behavior |= SPACE_PREPENDED;    break;
+      case '#': *behavior |= ALTERNATIVE_FORM;   break;
+      case '0': *behavior |= ZERO_PADDING;       break;
+      default:  return behavior;
+    }
+    (*pfmt)++;
+  }
+  return -1;
+}
+
+static inline int _get_integer(int *result) {
+
+}
 
 int printf(const char *restrict format, ...) {
   va_list args;
   va_start(args, format);
 
   int written = 0;
+  
+  int behavior;
+  int width, precision;
+
   char *p_string;
   int p_int;
   unsigned p_unsigned;
@@ -22,6 +48,9 @@ int printf(const char *restrict format, ...) {
       case 0: goto ret;
       case '%': // parse conversion specification
         format++;
+        behavior = _get_behavior_modifier(&format);
+        if (behavior == -1) goto ret;
+        
         switch (*format) {
           /* conversion specifier */
           case 'c':
