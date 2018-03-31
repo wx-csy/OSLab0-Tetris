@@ -40,7 +40,7 @@ static void timer_test(_Device *dev) {
   dev->read(_DEVREG_TIMER_UPTIME, &uptime, sizeof(uptime));
   t0 = uptime.lo;
 
-  printf("UPTIME = %d\n", t0);
+  printf("UPTIME = %d %d\n", uptime.hi, uptime.lo);
   for (int volatile i = 0; i < 10000000; i ++) ;
 
   dev->read(_DEVREG_TIMER_UPTIME, &uptime, sizeof(uptime));
