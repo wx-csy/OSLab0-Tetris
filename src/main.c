@@ -28,7 +28,7 @@ int main() {
     printf("\n");
   }
   clock_t cn = clock();
-  printf("time = %04x%04x", (unsigned)(cn >> 32), (unsigned)(cn & 0xffffffff));
+  printf("time = %08x%07x", (unsigned)(cn >> 32), (unsigned)(cn & 0xffffffff));
   return 0;
 }
 
