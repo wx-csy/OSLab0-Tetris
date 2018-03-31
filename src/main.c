@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <time.h>
 #include <am.h>
 #include <amdev.h>
 
@@ -26,6 +27,8 @@ int main() {
     }
     printf("\n");
   }
+  clock_t cn = clock();
+  printf("time = %04x%04x", (unsigned)(cn >> 32), (unsigned)(cn & 0xffffffff);
   return 0;
 }
 
@@ -40,7 +43,6 @@ static void timer_test(_Device *dev) {
   dev->read(_DEVREG_TIMER_UPTIME, &uptime, sizeof(uptime));
   t0 = uptime.lo;
 
-  printf("UPTIME = %d %d\n", uptime.hi, uptime.lo);
   for (int volatile i = 0; i < 10000000; i ++) ;
 
   dev->read(_DEVREG_TIMER_UPTIME, &uptime, sizeof(uptime));
