@@ -30,6 +30,7 @@ static inline int _get_behavior_modifier
       default:  return behavior;
     }
   } while ((*pfmt)++);
+  return 0;
 }
 
 static inline int _get_integer(const char *restrict *pfmt) {
@@ -169,7 +170,7 @@ int printf(const char *restrict format, ...) {
             spec.behavior |= LEFT_JUSTIFIED;
           }
         } else {
-          spec.width = _get_integer(format);
+          spec.width = _get_integer(&format);
         }
         
         // precision
