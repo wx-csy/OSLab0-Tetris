@@ -26,6 +26,7 @@ int main() {
     }
     printf("\n");
   }
+  srand(6666);
   for (int i=0; i<100; i++) {
     printf("%8x ", rand());
   }
