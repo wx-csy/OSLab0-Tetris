@@ -12,10 +12,10 @@
 #define ALTERNATIVE_FORM 0x8
 #define ZERO_PADDING     0x10
 
-struct conv_spec {
+typedef struct conv_spec {
   int behavior;
   int width, precision;
-};
+} conv_spec;
 
 static inline int _get_behavior_modifier
     (const char *restrict *pfmt) {
