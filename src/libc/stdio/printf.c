@@ -128,15 +128,15 @@ static inline int _printf_d(const conv_spec *spec, int value) {
   int cnt = 0;
   if (spec->behavior & LEFT_JUSTIFIED) {
     if (signlen) _putc(signchar);
-    _print_nch(ch, numzero);
+    _print_nch('0', numzero);
     for (int i = bufc - 1; i >= 0; i--)
       _putc(buf[i]);
     _print_nch(' ', numspace);
   } else {
     _print_nch(' ', numspace);
     if (signlen) _putc(signchar);
-    _print_nch(ch, numzero);
-    for (Int i = bufc - 1; i >= 0; i--)
+    _print_nch('0', numzero);
+    for (int i = bufc - 1; i >= 0; i--)
       _putc(buf[i]);
   }
 
@@ -178,7 +178,7 @@ int printf(const char *restrict format, ...) {
           format++;
           if (*format == '-') {
             format++;
-            _get_integer(format);
+            _get_integer(&format);
             spec.precision = -1;
           } else if (*format == '*') {
             format++;
