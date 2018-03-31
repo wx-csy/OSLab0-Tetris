@@ -27,8 +27,7 @@ int main() {
     }
     printf("\n");
   }
-  clock_t cn = clock();
-  printf("time = %08x%07x", (unsigned)(cn >> 32), (unsigned)(cn & 0xffffffff));
+  printf("Current calender time is: %s\n", asctime(localtime(time(NULL))));
   return 0;
 }
 
