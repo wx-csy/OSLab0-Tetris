@@ -11,6 +11,9 @@ static void pciconf_test(_Device *dev);
 static void ata_test(_Device *dev);
 
 int main() {
+  char temp[128];
+  sprintf(temp, "%d %x\n", 123, 456);
+  printf("%s", temp);
   assert(_ioe_init() == 0);
   printf("_heap = [%08x, %08x)\n", _heap.start, _heap.end);
   for (int n = 1; ; n++) {
