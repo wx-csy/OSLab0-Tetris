@@ -8,18 +8,7 @@ static void video_test(_Device *dev);
 static void pciconf_test(_Device *dev);
 static void ata_test(_Device *dev);
 
-int test() {
-  printf("Strings:\n");
-  const char* s = "Hello";
-  printf("\t.%10s.\n\t.%-10s.\n\t.%*s.\n", s, s, 10, s);
-  printf("Characters:\t%c %%\n", 65);
-  printf("Integers\n");
-  printf("Decimal:\t%i %d %.6i %i %.0i %+i %i\n", 1, 2, 3, 0, 0, 4, -4);
-  while (1);
-}
-
 int main() {
-  test();
   if (_ioe_init() != 0) _halt(1);
   printf("_heap = [%08x, %08x)\n", _heap.start, _heap.end);
   for (int n = 1; ; n++) {
