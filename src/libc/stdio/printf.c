@@ -187,7 +187,7 @@ int printf(const char *restrict format, ...) {
               spec.precision = -1;
             }
           } else {
-            spec.precision = _get_integer(format);
+            spec.precision = _get_integer(&format);
           }
         } else {
           spec.precision = -1; // default precision
