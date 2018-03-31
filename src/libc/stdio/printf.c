@@ -83,16 +83,8 @@ static inline int _printf_d(const conv_spec *spec, int value) {
   if (precision == -1) precision = 1; // default precision
   char buf[64];
   int bufc = 0;
-  int sign;
-  unsigned absv;
-  if (value < 0) {
-    sign = 1;
-    absv = -value;
-  } else {
-    sign = 0;
-    absv = value;
-  }
-
+  unsigned absv = value < 0 ? -value : value;
+  
   while (absv) {
     buf[bufc++] = '0' + absv % 10;
     absv /= 10;
@@ -125,7 +117,6 @@ static inline int _printf_d(const conv_spec *spec, int value) {
   int numspace = width - numzero - bufc - signlen;
   if (numspace < 0) numspace = 0;
 
-  int cnt = 0;
   if (spec->behavior & LEFT_JUSTIFIED) {
     if (signlen) _putc(signchar);
     _print_nch('0', numzero);
