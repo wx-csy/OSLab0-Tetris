@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <assert.h>
 #include <am.h>
 #include <amdev.h>
 
@@ -9,7 +10,7 @@ static void pciconf_test(_Device *dev);
 static void ata_test(_Device *dev);
 
 int main() {
-  if (_ioe_init() != 0) _halt(1);
+  assert(_ioe_init());
   printf("_heap = [%08x, %08x)\n", _heap.start, _heap.end);
   for (int n = 1; ; n++) {
     _Device *dev = _device(n);
@@ -24,6 +25,7 @@ int main() {
     }
     printf("\n");
   }
+  assert(0+0!=0);
   return 0;
 }
 
@@ -126,3 +128,4 @@ static void ata_test(_Device *dev) {
     printf("\n");
   }
 }
+
