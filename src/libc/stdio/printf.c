@@ -69,11 +69,11 @@ static inline int _printf_s(const conv_spec *spec, const char* str) {
   int nspace = spec->width - len;
   if (nspace < 0) nspace = 0;
   if (spec->behavior && LEFT_JUSTIFIED) {
-    for (int i = 0; i < len; i++) _putc(spec[i]);
+    for (int i = 0; i < len; i++) _putc(str[i]);
     _print_nch(' ', nspace);
   } else {
     _print_nch(' ', nspace);
-    for (int i = 0; i < len; i++) _putc(spec[i]);
+    for (int i = 0; i < len; i++) _putc(str[i]);
   }
   return nspace + len;
 }
