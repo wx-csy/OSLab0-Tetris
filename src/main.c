@@ -26,7 +26,6 @@ int main() {
     }
     printf("\n");
   }
-  _Exit(EXIT_FAILURE);
   return 0;
 }
 
