@@ -11,9 +11,6 @@ static void pciconf_test(_Device *dev);
 static void ata_test(_Device *dev);
 
 int main() {
-  char temp[128];
-  sprintf(temp, "%d %x\n", 123, 456);
-  printf("%s", temp);
   assert(_ioe_init() == 0);
   printf("_heap = [%08x, %08x)\n", _heap.start, _heap.end);
   for (int n = 1; ; n++) {
@@ -39,10 +36,11 @@ static void input_test(_Device *dev) {
 static void timer_test(_Device *dev) {
   _UptimeReg uptime;
   uint32_t t0, t1;
-
+  
   dev->read(_DEVREG_TIMER_UPTIME, &uptime, sizeof(uptime));
   t0 = uptime.lo;
 
+  printf("UPTIME = %d\n", t0);
   for (int volatile i = 0; i < 10000000; i ++) ;
 
   dev->read(_DEVREG_TIMER_UPTIME, &uptime, sizeof(uptime));
