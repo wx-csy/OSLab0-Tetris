@@ -27,7 +27,8 @@ int main() {
     }
     printf("\n");
   }
-  printf("Current calender time is: %s\n", asctime(localtime(time(NULL))));
+  time_t cur_time = time(NULL);
+  printf("Current calender time is: %s\n", asctime(localtime(&cur_time)));
   return 0;
 }
 
