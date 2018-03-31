@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
 #include <am.h>
 #include <amdev.h>
@@ -24,6 +25,9 @@ int main() {
       case _DEV_ATA0: ata_test(dev); break;
     }
     printf("\n");
+  }
+  for (int i=0; i<100; i++) {
+    printf("%8x ", rand());
   }
   return 0;
 }
