@@ -17,13 +17,12 @@ int main() {
   time_t cur_time = time(NULL);
   printf("Current calender time is: %s\n", ctime(&cur_time));
   
-  for (volatile int i = 0; i < 300000000; i++);
+  for (volatile int i = 0; i < 200000000; i++);
   
   srand(time(NULL));
   gInit();
   while (1) {
     gClear();
-    gFillRect(rand()%200, rand()%200, rand()%200, rand()%200, 0x0000ff);
     gRender();
   }
 
