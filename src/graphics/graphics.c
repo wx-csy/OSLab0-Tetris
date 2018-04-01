@@ -3,7 +3,8 @@
 #include <amdev.h>
 
 static _Device *dev_video = NULL;
-static _VideoInfoReg video_info;
+static struct gVideoInfo_t video_info;
+const struct gVideoInfo_t * const gVideoInfo = &video_info;
 
 #define MAX_BUF_SIZE (4 * 1024 * 1024)
 uint32_t _gBuf[MAX_BUF_SIZE];
@@ -13,9 +14,11 @@ int gInit() {
     _Device *dev = _device(n);
     if (!dev) break;
     if (dev->id == _DEV_VIDEO) {
-      _VideoInfoReg video_info;
+      _VideoInfoReg info;
       dev_video = dev;
-      dev->read(_DEVREG_VIDEO_INFO, &video_info, sizeof video_info);
+      dev->read(_DEVREG_VIDEO_INFO, &info, sizeof info);
+      video_info.width = info.width;
+      video_info.height = info.height;
       if (video_info.width <= 0 || video_info.height <= 0 || 
           video_info.width * video_info.height > MAX_BUF_SIZE)
         return -1;
