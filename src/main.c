@@ -20,7 +20,7 @@ int main() {
   
   gInit();
   while (1) {
-    gSetPixel(rand()%100, rand()%200, gRGB(rand()&0xff, rand()&0xff, rand&0xff));
+    gSetPixel(rand()%100, rand()%200, gRGB(rand()&0xff, rand()&0xff, rand()&0xff));
     gRender();
   }
 
