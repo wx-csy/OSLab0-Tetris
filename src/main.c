@@ -24,7 +24,6 @@ int main() {
   while (1) {
     gClear();
     gFillRect(rand()%200, rand()%200, rand()%200, rand()%200, 0x0000ff);
-    gFillRect(rand()%200, rand()%200, rand()%200, rand()%200, 0x00ff00);
     gRender();
   }
 
