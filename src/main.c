@@ -18,6 +18,8 @@ int main() {
   printf("Current calender time is: %s\n", ctime(&cur_time));
   srand(time(NULL));
   
+  for (volatile int i = 0; i < 100000000; i++);
+
   gInit();
   while (1) {
     gClear();
