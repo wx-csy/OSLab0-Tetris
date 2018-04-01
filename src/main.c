@@ -16,14 +16,16 @@ int main() {
   test();
   time_t cur_time = time(NULL);
   printf("Current calender time is: %s\n", ctime(&cur_time));
-  srand(time(NULL));
   
-  for (volatile int i = 0; i < 500000000; i++);
-
+  for (volatile int i = 0; i < 300000000; i++);
+  
+  srand(time(NULL));
   gInit();
   while (1) {
     gClear();
-    gSetPixel(rand()%100, rand()%200, gRGB(rand()&0xff, rand()&0xff, rand()&0xff));
+    gFillRect(rand()%200, rand()%200, rand()%200, rand()%200, 0x0000ff);
+    gFillRect(rand()%200, rand()%200, rand()%200, rand()%200, 0x00ff00);
+    gFillRect(rand()%200, rand()%200, rand()%200, rand()%200, 0xff0000);
     gRender();
   }
 
