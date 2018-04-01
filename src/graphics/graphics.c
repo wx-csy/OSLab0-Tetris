@@ -31,7 +31,7 @@ void gRender() {
     .x = 0, .y = 0,
     .w = video_info.width, .h = video_info.height,
     .sync = 1,
-    .pixels = &_gBuf
+    .pixels = _gBuf
   };
   dev_video->write(_DEVREG_VIDEO_FBCTL, &ctl, sizeof ctl);
 }
