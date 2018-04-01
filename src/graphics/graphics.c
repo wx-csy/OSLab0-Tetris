@@ -13,7 +13,7 @@ int gInit() {
     _Device *dev = _device(n);
     if (!dev) break;
     if (dev->id == _DEV_VIDEO) {
-      _VideoInfoReg video_info
+      _VideoInfoReg video_info;
       dev_video = dev;
       dev->read(_DEVREG_VIDEO_INFO, &video_info, sizeof video_info);
       if (video_info.width <= 0 || video_info.height <= 0 || 
