@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include <time.h>
+#include <am.h>
 #include "test.h"
 
 int main() {
