@@ -26,11 +26,6 @@ int gInit() {
   return -1;
 }
 
-void gGetVideoInfo(gVideoInfo *info) {
-  info->width = video_info.width;
-  info->height = video_info.height;
-}
-
 void gRender() {
   _FBCtlReg ctl = {
     .x = 0, .y = 0,
