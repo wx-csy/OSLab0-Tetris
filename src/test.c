@@ -1,9 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
-#include <time.h>
 #include <am.h>
 #include <amdev.h>
+#include "test.h"
 
 static void input_test(_Device *dev);
 static void timer_test(_Device *dev);
@@ -11,7 +9,7 @@ static void video_test(_Device *dev);
 static void pciconf_test(_Device *dev);
 static void ata_test(_Device *dev);
 
-int test() {
+void test() {
   puts("Running start-up test ...");
   printf("_heap = [%08x, %08x)\n", _heap.start, _heap.end);
   for (int n = 1; ; n++) {
