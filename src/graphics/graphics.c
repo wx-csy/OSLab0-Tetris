@@ -1,4 +1,5 @@
 #include <graphics.h>
+#include <time.h>
 #include <am.h>
 #include <amdev.h>
 
