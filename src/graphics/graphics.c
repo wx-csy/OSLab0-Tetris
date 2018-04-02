@@ -24,7 +24,7 @@ int gInit() {
           video_info.width * video_info.height > MAX_BUF_SIZE)
         return -1;
     }
-    if (dev->id = _DEV_INPUT) {
+    if (dev->id == _DEV_INPUT) {
       dev_input = dev;
     }
   }
