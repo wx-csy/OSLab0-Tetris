@@ -55,6 +55,6 @@ void gRender() {
 }
 
 int gGetFPS() {
-  return last_fps
+  return last_fps;
 }
 
