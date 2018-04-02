@@ -28,7 +28,7 @@ int main() {
       gFillRect(0, 0, gVideoInfo->width, gVideoInfo->height, G_BLUE);
     }
     char buf[20];
-    sprintf("FPS: %d", gGetFPS());
+    sprintf(buf, "FPS: %d", gGetFPS());
     gDrawString(20, 20, gGetFPS(), G_WHITE); 
     gRender();
   }
