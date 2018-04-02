@@ -8,7 +8,7 @@ void gUpdateKeyboard(void) {
   _KbdReg reg;
   do {
     dev_input->read(_DEVREG_INPUT_KBD, &reg, sizeof reg);
-    key_status[reg.keycode] = keydown;
+    key_status[reg.keycode] = reg.keydown;
   } while (reg.keycode != _KEY_NONE);
 }
 
