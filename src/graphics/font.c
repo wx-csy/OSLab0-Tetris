@@ -109,6 +109,7 @@ void gDrawString(int x, int y, const char *str, gRGB_t color) {
       }
     }
     x += 8;
+    str++;
   }
 }
 
