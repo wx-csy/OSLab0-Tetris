@@ -2,7 +2,8 @@
 #include <am.h>
 #include <amdev.h>
 
-static _Device *dev_video = NULL;
+_Device *dev_video = NULL;
+_Device *dev_input = NULL;
 static struct gVideoInfo_t video_info;
 const struct gVideoInfo_t * const gVideoInfo = &video_info;
 
@@ -22,11 +23,13 @@ int gInit() {
       if (video_info.width <= 0 || video_info.height <= 0 || 
           video_info.width * video_info.height > MAX_BUF_SIZE)
         return -1;
-      else
-        return 0;
+    }
+    if (dev->id = _DEV_INPUT) {
+      dev_input = dev;
     }
   }
-  return -1;
+  if (dev_video == NULL || dev_input == NULL) return -1;
+  return 0;
 }
 
 void gRender() {

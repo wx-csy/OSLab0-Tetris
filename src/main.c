@@ -23,6 +23,10 @@ int main() {
   gInit();
   while (1) {
     gClear();
+    gUpdateKeyboard();
+    if (gKeyPressed(G_KEY_SPACE)) {
+      gDrawRect(0, 0, gVideoInfo.width, gVideoInfo.height, G_BLUE);
+    }
     gRender();
   }
 
