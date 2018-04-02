@@ -108,7 +108,7 @@ void gDrawString(int x, int y, const char *str, gRGB_t color) {
           _gPixel(x + i, y + j) = color;
       }
     }
-    x += 8;
+    x += 10;
     str++;
   }
 }
