@@ -102,7 +102,7 @@ static const uint8_t ascii_bitmap[256][16] = {
 void gDrawString(int x, int y, const char *str, gRGB_t color) {
   while (*str) {
     for (int j = 0; j < 12; j++) {
-      uint8_t cur = ascii_bitmap[uint8_t(*str)][j];
+      uint8_t cur = ascii_bitmap[(uint8_t)(*str)][j];
       for (int i = 0; i < 8; i++) {
         if (cur & (1 << i))
           _gPixel(x + i, j) = color;
