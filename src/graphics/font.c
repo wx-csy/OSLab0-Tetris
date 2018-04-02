@@ -105,7 +105,7 @@ void gDrawString(int x, int y, const char *str, gRGB_t color) {
       uint8_t cur = ascii_bitmap[(uint8_t)(*str)][j];
       for (int i = 0; i < 8; i++) {
         if (cur & (1 << (7 - i)))
-          _gPixel(x + i, j) = color;
+          _gPixel(x + i, y + j) = color;
       }
     }
     x += 8;
