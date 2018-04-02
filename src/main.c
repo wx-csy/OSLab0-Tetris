@@ -28,6 +28,12 @@ int main() {
       gFillRect(0, 0, gVideoInfo->width, gVideoInfo->height, G_BLUE);
     }
     gRender();
+    static int count = 0;
+    count++;
+    if (count == 100000000) {
+      printf("FPS: %d\n", gGetFPS());
+      count = 0;
+    }
   }
 
   return 0;

@@ -32,6 +32,9 @@ int gInit() {
   return 0;
 }
 
+static time_t last_time;
+static int last_fps, fps;
+
 void gRender() {
   _FBCtlReg ctl = {
     .x = 0, .y = 0,
@@ -40,5 +43,17 @@ void gRender() {
     .pixels = _gBuf
   };
   dev_video->write(_DEVREG_VIDEO_FBCTL, &ctl, sizeof ctl);
+
+  fps++;
+  time_t new_time = time(NULL);
+  if (new_time != last_time) {
+    last_time = new_time;
+    last_fps = fps;
+    fps = 0;
+  }
+}
+
+int gGetFPS() {
+  return last_fps
 }
 
