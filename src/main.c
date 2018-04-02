@@ -27,12 +27,10 @@ int main() {
     if (gIsKeyPressed(G_KEY_SPACE)) {
       gFillRect(0, 0, gVideoInfo->width, gVideoInfo->height, G_BLUE);
     }
+    char buf[20];
+    sprintf("FPS: %d", gGetFPS());
+    gDrawString(20, 20, gGetFPS(), G_WHITE); 
     gRender();
-    static time_t last_time;
-    if (time(NULL) != last_time) {
-      printf("FPS: %d\n", gGetFPS());
-      last_time = time(NULL);
-    }
   }
 
   return 0;
