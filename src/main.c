@@ -29,7 +29,7 @@ int main() {
     }
     char buf[20];
     sprintf(buf, "FPS: %d", gGetFPS());
-    gDrawString(20, 20, gGetFPS(), G_WHITE); 
+    gDrawString(20, 20, buf, G_WHITE); 
     gRender();
   }
 
