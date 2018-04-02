@@ -29,9 +29,9 @@ int main() {
     }
     gRender();
     static time_t last_time;
-    if (time() != last_time) {
+    if (time(NULL) != last_time) {
       printf("FPS: %d\n", gGetFPS());
-      last_time = time();
+      last_time = time(NULL);
     }
   }
 
