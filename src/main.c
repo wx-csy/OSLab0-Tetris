@@ -6,9 +6,7 @@
 #include "graphics.h"
 
 int main() {
-  puts("Booting ...");
   if (_ioe_init() != 0) {
-    puts("IOE initialization failed!");
     _Exit(0); 
   } else {
     puts("IOE initialized!"); 
@@ -28,7 +26,7 @@ int main() {
       gFillRect(0, 0, gVideoInfo->width, gVideoInfo->height, G_BLUE);
     }
     char buf[20];
-    sprintf(buf, "FPS: %d", gGetFPS());
+    sprintf(buf, "%d fps", gGetFPS());
     gDrawString(20, 20, buf, G_WHITE); 
     gRender();
   }
