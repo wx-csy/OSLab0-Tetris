@@ -30,14 +30,8 @@ int main() {
       gFillRect(0, 0, gVideoInfo->width, gVideoInfo->height, G_BLUE);
     }
     char buf[20];
-    sprintf(buf, "%d FPS", gGetFPS());
+    sprintf(buf, "%d FPS", CLOCKS_PER_SEC / gGetFPS());
     gDrawString(20, 20, buf, G_WHITE);
-    int t = gGetFrameTime(); 
-    if (t > 10) {
-      sprintf(buf, "frame time: %d", t);
-      gDrawString(20, 40, buf, G_WHITE);
-      printf("%s\n", buf);
-    }
     gRender();
   }
 
