@@ -20,6 +20,6 @@ void draw_splash() {
   alpha >>= 12;
   if (alpha > 0xff) alpha = 0xff;
   gDrawImageAA(220, 100, &img_ProjectN_big, alpha);
-  gDrawStringA(200, 330, "Product of ProjectN Gaming.", G_WHITE, alpha);
+  gDrawStringA(210, 330, "Product of ProjectN Gaming", G_WHITE, alpha);
 }
 
