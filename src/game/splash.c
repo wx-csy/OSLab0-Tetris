@@ -33,6 +33,7 @@ void splash_proc() {
     case SPLASH_HOLD:
       gDrawImageA(220, 100, &img_ProjectN_big);
       gDrawString(205, 330, "Product of ProjectN Gaming", G_WHITE);
+      gDrawString(225, 350, "Press `C' to Start", G_WHITE); 
       return;
     default:  assert(0);                       
   }
