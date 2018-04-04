@@ -105,7 +105,24 @@ void gDrawString(int x, int y, const char *str, gRGB_t color) {
       uint8_t cur = ascii_bitmap[(uint8_t)(*str)][j];
       for (int i = 0; i < 8; i++) {
         if (cur & (1 << (7 - i)))
-          _gPixel(x + i, y + j) = color;
+          gSetPixel(x + i, y + j, color);
+      }
+    }
+    x += 9;
+    str++;
+  }
+}
+
+void gDrawStringA(int x, int y, const char *str, gRGB_t color, 
+    uint8_t alpha) { 
+  while (*str) {
+    for (int j = 0; j < 16; j++) {
+      uint8_t cur = ascii_bitmap[(uint8_t)(*str)][j];
+      for (int i = 0; i < 8; i++) {
+        if (cur & (1 << (7 - i))) {
+          gRGB_t pixel = gGetPixel(x + i, y + j);
+          gSetPixel(x + i, y + j, gColorBlend(color, pixel, alpha));
+        }
       }
     }
     x += 9;
