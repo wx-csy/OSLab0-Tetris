@@ -19,7 +19,6 @@ void draw_splash() {
   uint32_t alpha = (c_now - c_start) * 255;
   alpha >>= 12;
   if (alpha > 0xff) alpha = 0xff;
-  alpha = 0xff - alpha;
   gDrawImageAA(220, 100, &img_ProjectN_big, alpha);
   gDrawString(200, 330, "Product of ProjectN Gaming.", G_WHITE);
 }
