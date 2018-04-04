@@ -1,10 +1,10 @@
 #include "graphics.h"
 #include "game.h"
 
-enum TETROMINO_TYPE {
+typedef enum TETRO_TYPE {
   TETRO_NONE,
   TETRO_I, TETRO_J, TETRO_L, TETRO_O, TETRO_S, TETRO_T, TETRO_Z
-};
+} TETRO_TYPE;
 
 static gRGB_t tetro_color[8] = {
   [TETRO_NONE] = G_BLACK,
@@ -66,7 +66,7 @@ static uint8_t tetris_shape[8][4][4][4] = {
 #define NUM_ROWS  20
 #define NUM_COLS  10
 
-static TETROMINO_TYPE grid[NUM_ROWS][NUM_COLS] = {{TETRO_Z}};
+static TETRO_TYPE grid[NUM_ROWS][NUM_COLS] = {{TETRO_Z}};
 
 static draw_grid(int x, int y) {
   for (int i = 0; i < NUM_ROWS; i++) {
