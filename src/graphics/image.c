@@ -35,7 +35,7 @@ int gDrawImageAA(int x, int y, const gImage_t *image, uint8_t alpha) {
       if (pixel == 0xffffffff) continue;
       uint8_t fr = *(data++), fg = *(data++), 
               fb = *(data++), fa = *(data++);
-      fa = channel_blend(fa, 0xff, alpha);
+      fa = channel_blend(fa, 0x00, alpha);
       gSetPixel(i, j, gRGB(
             channel_blend(fr, gRGB_red(pixel), fa),
             channel_blend(fg, gRGB_green(pixel), fa),
