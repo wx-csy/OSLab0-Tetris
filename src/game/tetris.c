@@ -72,7 +72,7 @@ static void draw_grid(int x, int y) {
   for (int i = 0; i < NUM_ROWS; i++) {
     for (int j = 0; j < NUM_COLS; j++) {
       if (grid[i][j] == TETRO_NONE) continue;
-      gFillRect(x + j * 24 + 2, y + i * 24 + 2, 30, 30, 
+      gFillRect(x + j * 24 + 2, y + i * 24 + 2, 20, 20, 
           tetro_color[grid[i][j]]);
     }
   }

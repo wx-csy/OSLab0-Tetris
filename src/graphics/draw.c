@@ -19,7 +19,7 @@ void gDrawRect(int x1, int y1, int x2, int y2, gRGB_t color) {
 void gFillRect(int x, int y, int width, int height, gRGB_t color) {
   for (int j = y; j < y + height; j++) {
     for (int i = x; i < x + width; i++) {
-      gSetPixel(x, y, color);
+      gSetPixel(i, j, color);
     }
   } 
 }
