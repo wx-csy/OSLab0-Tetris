@@ -29,9 +29,7 @@ int main() {
     if (gIsKeyPressed(G_KEY_SPACE)) {
       gFillRect(0, 0, gVideoInfo->width, gVideoInfo->height, G_BLUE);
     }
-    char buf[20];
-    sprintf(buf, "%d FPS", gGetFPS());
-    gDrawString(20, 20, buf, G_WHITE);
+    screen_update();
     gRender();
   }
 
