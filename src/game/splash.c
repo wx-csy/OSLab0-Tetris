@@ -4,16 +4,21 @@
 #include "game.h"
 #include "resource.h"
 
-static int status = 0;
+#define SPLASH_NOT_START  0
+#define SPLASH_RUNNING    1
+#define SPLASH_HOLD       2
+#define SPLASH_END        3
+
+static int status = SPLASH_NOT_START;
 
 static clock_t c_start;
 
 void init_splash() {
-  status = 1;
+  status = SPLASH_RUNNING;
   c_start = clock();
 }
 
-void draw_splash() {
+void splash_proc() {
   clock_t c_now = clock();
   uint32_t alpha = (c_now - c_start) * 256;
   alpha >>= 12;
