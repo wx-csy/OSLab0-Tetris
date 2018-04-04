@@ -13,10 +13,9 @@ void init_splash() {
   c_start = clock();
 }
 
-#pragma GCC optimize("O0")
 void draw_splash() {
   clock_t c_now = clock();
-  uint32_t alpha = (uint32_t)(c_now - c_start) * 256 / CLOCKS_PER_SEC / 3;
+  uint32_t alpha = (c_now - c_start) * 256 >> 12;
   alpha >>= 12;
   if (alpha > 0xff) alpha = 0xff;
   gDrawImageAA(220, 100, &img_ProjectN_big, alpha);
