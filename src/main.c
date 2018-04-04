@@ -3,7 +3,7 @@
 #include <time.h>
 #include <am.h>
 #include "test.h"
-#include "main.h"
+#include "game.h"
 #include "graphics.h"
 
 int main() {
