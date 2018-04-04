@@ -18,7 +18,7 @@ int main() {
   srand(time(NULL));
   gInit();
 
-  if (gVideoInfo.width < 640 || gVideoInfo->height <= 480) {
+  if (gVideoInfo->width < 640 || gVideoInfo->height <= 480) {
     printf("This screen does not support 640*480 resolution!");
     _Exit(0);
   }
