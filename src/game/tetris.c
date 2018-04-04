@@ -78,3 +78,7 @@ static void draw_grid(int x, int y) {
   }
 }
 
+void game_proc() {
+  draw_grid();
+}
+
