@@ -34,6 +34,7 @@ int gInit() {
 }
 
 static time_t last_time;
+static clock_t last_clock, frame_time;
 static int last_fps, fps;
 
 void gRender() {
@@ -52,8 +53,17 @@ void gRender() {
     last_fps = fps;
     fps = 0;
   }
+  clock_t new_clock = clock();
+  frame_time = new_clock - last_clock;
+  last_clock = new_clock;
 }
 
 int gGetFPS() {
   return last_fps;
 }
+
+clock_t gGetFrameTime() {
+  return frame_time;
+}
+
+
