@@ -33,7 +33,7 @@ int gInit() {
   return 0;
 }
 
-static clock_t last_fps_sec;
+static clock_t last_fps_clock;
 static clock_t last_clock, frame_time;
 static int last_fps, fps;
 
@@ -48,8 +48,8 @@ void gRender() {
 
   fps++;
   clock_t new_clock = clock();
-  if (new_clock / CLOCKS_PER_SEC != last_fps_sec) {
-    last_fps_sec = new_clock / CLOCKS_PER_SEC;
+  if (new_clock - last_fps_clock > 1000) {
+    last_fps_sec = new_clock;
     last_fps = fps;
     fps = 0;
   }
