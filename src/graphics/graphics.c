@@ -33,7 +33,7 @@ int gInit() {
   return 0;
 }
 
-static time_t last_time;
+static clock_t last_fps_sec;
 static clock_t last_clock, frame_time;
 static int last_fps, fps;
 
@@ -47,13 +47,13 @@ void gRender() {
   dev_video->write(_DEVREG_VIDEO_FBCTL, &ctl, sizeof ctl);
 
   fps++;
-  time_t new_time = time(NULL);
-  if (new_time != last_time) {
-    last_time = new_time;
+  clock_t new_clock = clock();
+  if (new_clock / CLOCKS_PER_SEC != last_fps_sec) {
+    last_fps_sec = new_clock / CLOCKS_PER_SEC;
     last_fps = fps;
     fps = 0;
   }
-  clock_t new_clock = clock();
+  
   frame_time = new_clock - last_clock;
   last_clock = new_clock;
 }
