@@ -15,7 +15,7 @@ static gRGB_t tetro_color[8] = {
   [TETRO_S] = G_GREEN,
   [TETRO_T] = G_YELLOW,
   [TETRO_Z] = G_RED,
-}
+};
 
 // This game uses the so-called "super rotation system".
 static uint8_t tetris_shape[8][4][4][4] = {
