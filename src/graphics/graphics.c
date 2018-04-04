@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <graphics.h>
 #include <time.h>
 #include <am.h>
