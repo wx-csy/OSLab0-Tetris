@@ -16,13 +16,14 @@ static clock_t c_start;
 
 void splash_proc() {
   clock_t c_now = clock();
+  uint32_t alpha;
   switch (status) {
     case SPLASH_NOT_START: 
       c_start = clock();
       status = SPLASH_RUNNING;
       return;
     case SPLASH_RUNNING:
-      uint32_t alpha = (uint32_t)(c_now - c_start) * 256;
+      alpha = (uint32_t)(c_now - c_start) * 256;
       alpha = alpha / CLOCKS_PER_SEC / 4;
       if (alpha > 0xff) status = SPLASH_HOLD;
       gDrawImageAA(220, 100, &img_ProjectN_big, alpha);
