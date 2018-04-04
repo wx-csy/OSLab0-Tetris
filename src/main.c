@@ -32,7 +32,7 @@ int main() {
     char buf[20];
     sprintf(buf, "%d FPS", gGetFPS());
     gDrawString(20, 20, buf, G_WHITE); 
-    sprintf(buf, "frame time: %d ms", gGetFrameTime() * 1000 / CLOCKS_PER_SEC);
+    sprintf(buf, "frame time: %d", gGetFrameTime());
     gDrawString(20, 40, buf, G_WHITE);
     gRender();
   }
