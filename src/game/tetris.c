@@ -18,7 +18,7 @@ static gRGB_t tetro_color[8] = {
 };
 
 // This game uses the so-called "super rotation system".
-static uint8_t tetris_shape[8][4][4][4] = {
+uint8_t tetris_shape[8][4][4][4] = {
   [TETRO_I] = {
     {{0,0,0,0}, {1,1,1,1}, {0,0,0,0}, {0,0,0,0}},
     {{0,0,1,0}, {0,0,1,0}, {0,0,1,0}, {0,0,1,0}},
