@@ -33,8 +33,10 @@ int main() {
     sprintf(buf, "%d FPS", gGetFPS());
     gDrawString(20, 20, buf, G_WHITE);
     int t = gGetFrameTime(); 
-    if (t > 10) sprintf(buf, "frame time: %d", t);
-    gDrawString(20, 40, buf, G_WHITE);
+    if (t > 10) {
+      sprintf(buf, "frame time: %d", t);
+      gDrawString(20, 40, buf, G_WHITE);
+    }
     gRender();
   }
 
