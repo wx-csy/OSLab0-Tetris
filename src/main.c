@@ -29,10 +29,7 @@ int main() {
   while (1) {
     gClear();
     gUpdateKeyboard();
-    if (gIsKeyPressed(G_KEY_SPACE)) {
-      gFillRect(0, 0, gVideoInfo->width, gVideoInfo->height, G_BLUE);
-    }
-    screen_update();
+    main_proc();
     gRender();
   }
 

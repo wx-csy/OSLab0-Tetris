@@ -61,8 +61,8 @@ int gGetFPS() {
   return last_fps;
 }
 
-clock_t gGetFrameTime() {
-  return frame_time;
+uint32_t gGetFrameTime {
+  return (uint32_t)frame_time * 1000 / CLOCKS_PER_SEC;
 }
 
 
