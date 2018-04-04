@@ -14,7 +14,7 @@ int gDrawImageA(int x, int y, const gImage_t *image) {
       if (pixel == 0xffffffff) continue;
       uint8_t fr = *(data++), fg = *(data++), 
               fb = *(data++), fa = *(data++);
-      gSetPixel(i, j, gRGB_t(
+      gSetPixel(i, j, gRGB(
             channel_blend(fr, gRGB_red(pixel), fa);
             channel_blend(fg, gRGB_green(pixel), fa);
             channel_blend(fb, gRGB_blue(pixel), fa);
