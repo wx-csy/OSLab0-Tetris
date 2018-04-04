@@ -7,7 +7,7 @@ void screen_update() {
   char buf[32];
   sprintf(buf, "FPS: %d", gGetFPS());
   gDrawImageA(220, 100, &img_ProjectN_big);
-  gDrawString(190, 330, "Product of ProjectN Gaming.", G_WHITE);
+  gDrawString(200, 330, "Product of ProjectN Gaming.", G_WHITE);
   gDrawString(20, 20, buf, G_WHITE);
 }
 
