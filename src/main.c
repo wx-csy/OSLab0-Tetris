@@ -6,11 +6,9 @@
 #include "graphics.h"
 
 int main() {
-  if (_ioe_init() != 0) {
-    _Exit(0); 
-  } else {
-    puts("IOE initialized!"); 
-  };
+  if (_ioe_init() != 0) _Exit(0); 
+  puts("IOE initialized!"); 
+  
   test();
   time_t cur_time = time(NULL);
   printf("Current calender time is: %s\n", ctime(&cur_time));
@@ -19,6 +17,12 @@ int main() {
   
   srand(time(NULL));
   gInit();
+
+  if (gVideoInfo.width < 640 || gVideoInfo->height <= 480) {
+    printf("This screen does not support 640*480 resolution!");
+    _Exit(0);
+  }
+
   while (1) {
     gClear();
     gUpdateKeyboard();
