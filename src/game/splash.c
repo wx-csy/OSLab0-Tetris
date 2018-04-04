@@ -14,7 +14,7 @@ void init_splash() {
 }
 
 void draw_splash() {
-  c_now = clock();
+  clock_t c_now = clock();
   uint32_t alpha = (c_now - c_start) * 255 / CLOCKS_PER_SEC / 3;
   if (alpha > 0xff) alpha = 0xff;
   alpha = 0xff - alpha;
