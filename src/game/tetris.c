@@ -66,7 +66,7 @@ static uint8_t tetris_shape[8][4][4][4] = {
 #define NUM_ROWS  20
 #define NUM_COLS  10
 
-static TETRO_TYPE grid[NUM_ROWS][NUM_COLS] = {{TETRO_Z}};
+static TETRO_TYPE grid[NUM_ROWS][NUM_COLS] = {{TETRO_Z, TETRO_T}};
 
 static void draw_grid(int x, int y) {
   for (int i = 0; i < NUM_ROWS; i++) {
@@ -79,6 +79,6 @@ static void draw_grid(int x, int y) {
 }
 
 void game_proc() {
-  draw_grid();
+  draw_grid(200, 0);
 }
 
