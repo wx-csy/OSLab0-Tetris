@@ -6,11 +6,11 @@ static inline uint8_t channel_blend(uint8_t fore, uint8_t back,
 }
 
 int gDrawImageA(int x, int y, const gImage_t *image) {
-  uint8_t *data = image->pixel_data;
+  const uint8_t *data = image->pixel_data;
   if (image->bytes_per_pixel != 4) return -1;
   for (int j = y; j < y + image->height; j++) {
     for  (int i = x; i < x + image->width; i++) {
-      gRBG_t pixel = gGetPixel(i, j);
+      gRGB_t pixel = gGetPixel(i, j);
       if (pixel == 0xffffffff) continue;
       uint8_t fr = *(data++), fg = *(data++), 
               fb = *(data++), fa = *(data++);
