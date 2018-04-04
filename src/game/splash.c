@@ -15,7 +15,7 @@ void init_splash() {
 
 void draw_splash() {
   clock_t c_now = clock();
-  uint32_t alpha = (c_now - c_start) * 256 >> 12;
+  uint32_t alpha = (c_now - c_start) * 256;
   alpha >>= 12;
   if (alpha > 0xff) alpha = 0xff;
   gDrawImageAA(220, 100, &img_ProjectN_big, alpha);
