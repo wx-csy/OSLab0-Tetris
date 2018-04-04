@@ -16,10 +16,10 @@ void init_splash() {
 #pragma GCC optimize("O0")
 void draw_splash() {
   clock_t c_now = clock();
-  uint32_t alpha = (c_now - c_start) * 255;
+  uint32_t alpha = (uint32_t)(c_now - c_start) * 256 / CLOCKS_PER_SEC / 3;
   alpha >>= 12;
   if (alpha > 0xff) alpha = 0xff;
   gDrawImageAA(220, 100, &img_ProjectN_big, alpha);
-  gDrawStringA(210, 330, "Product of ProjectN Gaming", G_WHITE, alpha);
+  gDrawStringA(205, 330, "Product of ProjectN Gaming", G_WHITE, alpha);
 }
 
