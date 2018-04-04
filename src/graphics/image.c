@@ -2,7 +2,9 @@
 
 static inline uint8_t channel_blend(uint8_t fore, uint8_t back, 
     uint8_t alpha) {
-  return (fore * alpha + back * (255 - alpha)) / 255;
+  uint32_t a = alpha;
+  if (a == 0xff) a++;
+  return (fore * a + back * (256 - a)) >> 8;
 }
 
 int gDrawImageA(int x, int y, const gImage_t *image) {
