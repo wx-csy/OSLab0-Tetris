@@ -36,6 +36,7 @@ int main() {
     if (t > 10) {
       sprintf(buf, "frame time: %d", t);
       gDrawString(20, 40, buf, G_WHITE);
+      printf("%s\n", buf);
     }
     gRender();
   }
