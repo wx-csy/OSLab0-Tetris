@@ -17,7 +17,7 @@ static clock_t c_start;
 void splash_proc() {
   clock_t c_now = clock();
   switch (status) {
-    case SPALSH_NOT_START: 
+    case SPLASH_NOT_START: 
       c_start = clock();
       status = SPLASH_RUNNING;
       return;
