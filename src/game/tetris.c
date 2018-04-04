@@ -68,7 +68,7 @@ static uint8_t tetris_shape[8][4][4][4] = {
 
 static TETRO_TYPE grid[NUM_ROWS][NUM_COLS] = {{TETRO_Z}};
 
-static draw_grid(int x, int y) {
+static void draw_grid(int x, int y) {
   for (int i = 0; i < NUM_ROWS; i++) {
     for (int j = 0; j < NUM_COLS; j++) {
       if (grid[i][j] == TETRO_NONE) continue;
