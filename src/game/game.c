@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include <game.h>
-#include <graphics.h>
+#include "graphics.h"
+#include "game.h"
+#include "resource.h"
 
 void screen_update() {
   char buf[32];
