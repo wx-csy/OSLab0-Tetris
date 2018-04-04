@@ -23,6 +23,8 @@ int main() {
     printf("This screen does not support 640*480 resolution!\n");
     _Exit(0);
   }
+  
+  init_game();
 
   while (1) {
     gClear();

@@ -3,11 +3,14 @@
 #include "game.h"
 #include "resource.h"
 
+void init_game() {
+  init_splash();
+}
+
 void screen_update() {
   char buf[32];
   sprintf(buf, "FPS: %d", gGetFPS());
-  gDrawImageA(220, 100, &img_ProjectN_big);
-  gDrawString(200, 330, "Product of ProjectN Gaming.", G_WHITE);
+  draw_splash();
   gDrawString(20, 20, buf, G_WHITE);
 }
 
