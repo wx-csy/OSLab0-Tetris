@@ -13,6 +13,7 @@ void init_splash() {
   c_start = clock();
 }
 
+#pragma GCC optimize("O0")
 void draw_splash() {
   clock_t c_now = clock();
   uint32_t alpha = (c_now - c_start) * 255 / CLOCKS_PER_SEC / 3;
