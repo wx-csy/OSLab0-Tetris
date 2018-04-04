@@ -1,3 +1,4 @@
+#include "graphics.h"
 #include "game.h"
 
 enum TETROMINO_TYPE {
