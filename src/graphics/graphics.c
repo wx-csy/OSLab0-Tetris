@@ -52,8 +52,9 @@ void gRender() {
     last_fps_clock = new_clock;
     last_fps = fps;
     fps = 0;
+    printf("new frame, fps: %d\n" last_fps);
   }
-  
+  printf("new clock: %d\n", (int)new_clock);  
   frame_time = new_clock - last_clock;
   last_clock = new_clock;
 }
