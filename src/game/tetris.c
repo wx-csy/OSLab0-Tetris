@@ -136,7 +136,6 @@ void tetris_init() {
 
 void tetris_proc() {
   tetris_key_proc();
-  generate_new_tetro();
   gDrawRect(200, 0, 439, 479, G_WHITE);
   draw_grid(200, 0);
   draw_current_tetro(200, 0);
