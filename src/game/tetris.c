@@ -95,7 +95,7 @@ static inline void draw_square(int offx, int offy, int x, int y,
 
 static void draw_current_tetro(int offx, int offy) {
   for (int i = 0; i < 4; i++) {
-    for (int j = 0; j < y + 4; j++) {
+    for (int j = 0; j < 4; j++) {
       if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
       if (is_in_playground(current.x + i, current.y + j))
         draw_square(offx, offy, current.x + i, current.y + j,
