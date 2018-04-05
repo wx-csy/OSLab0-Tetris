@@ -3,23 +3,28 @@
 #include <amdev.h>
 
 static int key_status[256];
-static int last_key_status[256];
 
 void gUpdateKeyboard(void) {
   _KbdReg reg;
   do {
     dev_input->read(_DEVREG_INPUT_KBD, &reg, sizeof reg);
-    key_status[reg.keycode] = reg.keydown;
+    if (reg.keydown) 
+      key_status[reg.keycode]++;
+    else 
+      key_status[reg.keycode] = 0;
   } while (reg.keycode != _KEY_NONE);
 }
 
 int gIsKeyPressed(int keycode) {
-  return key_status[keycode];
+  return key_status[keycode] > 0;
 }
 
 int gIsKeyDown(int keycode) {
-  int res = (key_status[keycode] && !last_key_status[keycode]);
-  last_key_status[keycode] = key_status[keycode];
-  return res;
+  if (key_status[keycode] > 0) {
+    key_status[kecode]--;
+    return 1;
+  } else {
+    return 0;
+  }
 }
 

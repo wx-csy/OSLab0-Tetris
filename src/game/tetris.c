@@ -222,7 +222,7 @@ void tetris_init() {
   res_time = 0;
 }
 
-int speed_step = 300;
+int speed_step = 700;
 
 void tetris_proc() {
   tetris_key_proc();
