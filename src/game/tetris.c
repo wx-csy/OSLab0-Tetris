@@ -151,7 +151,7 @@ static void perform_elimination() {
     for (int j = 0; j < NUM_COLS; j++)
       if (grid[i][j] == TETRO_NONE) goto next;
     elim_count++;
-    for (int ii = i; i > 0; i--)
+    for (int ii = i; ii > 0; ii--)
       for (int j = 0; j < NUM_COLS; j++) 
         grid[ii][j] = grid[ii-1][j];
     for (int j = 0; j < NUM_COLS; j++)
