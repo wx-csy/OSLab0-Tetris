@@ -82,8 +82,8 @@ static struct {
 
 static void generate_new_tetro() {
   current.type = rand() % 7 + 1;
-  current.x = -2;
-  current.y = 8;
+  current.x = 3;
+  current.y = 0;
   current.rot = 0;
 }
 
