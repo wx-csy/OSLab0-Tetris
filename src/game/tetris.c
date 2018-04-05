@@ -134,7 +134,7 @@ void tetris_key_proc() {
   if (gIsKeyDown(G_KEY_DOWN)) {
     current.row++;
   }
-  if (gIsKeyDown(G_KEY_RCTRL)) {
+  if (gIsKeyDown(G_KEY_RSHIFT)) {
     current.rot++;
     current.rot &= 3;
   }
