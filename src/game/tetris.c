@@ -82,6 +82,8 @@ static struct {
   unsigned rot; 
 } current;
 
+uint32_t score;
+
 static inline void draw_square(int offx, int offy, int row, int col,
     TETRO_TYPE type) {
   gFillRect(offx + col * 24 + 2, offy + row * 24 + 2, 20, 20, 
@@ -156,10 +158,11 @@ static void perform_elimination() {
         grid[ii][j] = grid[ii-1][j];
     for (int j = 0; j < NUM_COLS; j++)
       grid[0][j] = TETRO_NONE;
-    i++;
 next:;
   }
   assert(elim_count <= 4);
+  static const uint32_t score_add[] = {0, 1, 3, 5, 8};
+  score += score_add[elim_count];
 }
 
 static void current_down() {
@@ -214,18 +217,24 @@ uint32_t res_time;
 void tetris_init() {
   generate_new_tetro();
   srand(time(NULL));
+  score = 0;
   res_time = 0;
 }
+
+int speed_step = 300;
 
 void tetris_proc() {
   tetris_key_proc();
   res_time += gGetFrameTime();
-  if (res_time > 1000) {
-    res_time %= 1000;
+  if (res_time > speed_step) {
+    res_time %= speed_step;
     current_down();
   }
   gDrawRect(200, 0, 439, 479, G_WHITE);
   draw_grid(200, 0);
   draw_current_tetro(200, 0);
+  char score_str[32];
+  sprintf(score_str,"Score: %u", score);
+  gDrawString(20, 40, score_str, G_WHITE);
 }
 
