@@ -141,7 +141,6 @@ static void new_tetro_group(TETRO_TYPE group[static 7]) {
     assert(id < 7 && flag[id] == 0);
     flag[id] = 1;
     group[i] = id + 1;
-next:;
   }
 }
 
@@ -247,6 +246,7 @@ void tetris_init() {
   srand(time(NULL));
   score = 0;
   res_time = 0;
+  next_tetro_pos = 0;
   new_tetro_group(tetro_queue);
   new_tetro_group(tetro_queue + 7);
 }
