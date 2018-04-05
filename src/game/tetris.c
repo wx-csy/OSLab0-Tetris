@@ -128,7 +128,30 @@ static void generate_new_tetro() {
     current.row--;
 }
 
-void tetris_key_proc() {
+static void game_over() {
+  printf("Game Over!\n");
+  _Exit(0);
+}
+
+static void fix_current_to_grid() {
+  for (int i = 0; i < NUM_ROWS; i++) {
+    for (int j = 0; j < NUM_ROWS; j++) {
+      if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
+      if (currwnt.row + i < 0) game_over();
+      grid[current.row + i][current.col + j] = current.type;
+    }
+  }
+}
+
+static void current_down() {
+  current.row++;
+  if (!is_valid_pos()) {
+    fix_current_to_grid();
+    generate_new_tetro();
+  }
+}
+
+static void tetris_key_proc() {
 #define DEBUG
 #ifdef DEBUG
   // These keys are for debug only.
@@ -165,13 +188,22 @@ void tetris_key_proc() {
   }
 }
 
+uint32_t res_time;
+
 void tetris_init() {
   generate_new_tetro();
   srand(time(NULL));
+  last_clock = clock();
+  res_time = 0;
 }
 
 void tetris_proc() {
   tetris_key_proc();
+  res_time += gGetFrameTime();
+  if (res_time > 1000) {
+    res_time %= 1000;
+    current_down();
+  }
   gDrawRect(200, 0, 439, 479, G_WHITE);
   draw_grid(200, 0);
   draw_current_tetro(200, 0);
