@@ -240,6 +240,9 @@ static void tetris_key_proc() {
       current.rot &= 3;
     }
   }
+  if (gIsKeyDown(G_KEY_SPACE)) {
+    current_down();
+  }
 }
 
 uint32_t res_time;
