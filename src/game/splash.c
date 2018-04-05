@@ -29,14 +29,14 @@ void splash_proc() {
         status = SPLASH_HOLD;
       gDrawImageAA(120, 20, &img_logo, alpha);
       gDrawImageAA(245, 150, &img_ProjectN, alpha);
-      gDrawStringA(210, 360, "Product of ProjectN Gaming", 
+      gDrawStringA(210, 350, "Product of ProjectN Gaming", 
           G_WHITE, alpha);
       return;
     case SPLASH_HOLD:
       gDrawImageA(120, 20, &img_logo);
       gDrawImageA(245, 150, &img_ProjectN);
-      gDrawString(210, 360, "Product of ProjectN Gaming", G_WHITE);
-      gDrawString(245, 385, "Press 'C' to Start", G_WHITE); 
+      gDrawString(210, 350, "Product of ProjectN Gaming", G_WHITE);
+      gDrawString(245, 375, "Press 'C' to Start", G_WHITE); 
       if (gIsKeyDown(G_KEY_C)) {
         status = SPLASH_END;
         tetris_init();
