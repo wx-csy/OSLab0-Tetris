@@ -113,11 +113,18 @@ static void draw_grid(int offx, int offy) {
   }
 }
 
+#define DEBUG
+
 void tetris_key_proc() {
+#ifdef DEBUG
   if (gIsKeyDown(G_KEY_Q)) {
     current.type++;        // This is for debug only.
     current.type %= sizeof(tetro_color) / sizeof(gRGB_t);
   }
+  if (gIsKeyDown(G_KEY_UP)) {
+    current.row--;
+  }
+#endif
   if (gIsKeyDown(G_KEY_LEFT)) {
     current.col--;
   }
@@ -127,7 +134,7 @@ void tetris_key_proc() {
   if (gIsKeyDown(G_KEY_DOWN)) {
     current.row++;
   }
-  if (gIsKeyDown(G_KEY_UP)) {
+  if (gIsKeyDown(G_KEY_RCTRL)) {
     current.rot++;
     current.rot &= 3;
   }
