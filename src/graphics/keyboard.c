@@ -21,7 +21,7 @@ int gIsKeyPressed(int keycode) {
 
 int gIsKeyDown(int keycode) {
   if (key_status[keycode] > 0) {
-    key_status[kecode]--;
+    key_status[keycode]--;
     return 1;
   } else {
     return 0;
