@@ -1,9 +1,9 @@
 CFLAGS  = -std=c99 -O2 -MMD -Wall -Werror -ggdb -fno-builtin \
           -fno-pic -fno-stack-protector -fno-omit-frame-pointer \
-          -m32 -march=i386 -I./include
+          -m32 -march=i386 -I./include -I./libc/include
 LDFLAGS = -melf_i386 -Ttext 0x00100000 
 
-SRCS = $(shell find src -name "*.c")
+SRCS = $(shell find src libc/src resource -name "*.c")
 OBJS = $(addprefix build/, $(addsuffix .o, $(basename $(SRCS))))
 DEPS = $(addprefix build/, $(addsuffix .d, $(basename $(SRCS))))
 
