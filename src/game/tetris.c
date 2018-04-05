@@ -188,6 +188,7 @@ static void tetris_key_proc() {
   }
 }
 
+uint32_t res_time;
 
 void tetris_init() {
   generate_new_tetro();
