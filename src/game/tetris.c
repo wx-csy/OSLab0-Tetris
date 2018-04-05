@@ -21,7 +21,7 @@ static gRGB_t tetro_color[8] = {
 
 //  This game uses the so-called "super rotation system" 
 // without wall kicks.
-uint8_t tetris_shape[8][4][4][4] = {
+static const uint8_t tetris_shape[8][4][4][4] = {
   [TETRO_I] = {
     {{0,0,0,0}, {1,1,1,1}, {0,0,0,0}, {0,0,0,0}},
     {{0,0,1,0}, {0,0,1,0}, {0,0,1,0}, {0,0,1,0}},
@@ -144,11 +144,28 @@ static void fix_current_to_grid() {
   }
 }
 
+static void perform_elimination() {
+  int elim_count = 0;
+  for (int i = NUM_ROWS - 1; i >= 0; i--) {
+    for (int j = 0; j < NUM_COLS; j++)
+      if (grid[i][j] == TETRO_NONE) goto next;
+    elim_count++;
+    for (int ii = i; i > 0; i--)
+      for (int j = 0; j < NUM_COLS; j++) 
+        grid[ii][j] = grid[ii-1][j];
+    for (int j = 0; j < NUM_COLS; j++)
+      grid[0][j] = TETRO_NONE;
+next:;
+  }
+  assert(elim_count <= 4);
+}
+
 static void current_down() {
   current.row++;
   if (!is_valid_pos()) {
     current.row--;
     fix_current_to_grid();
+    perform_elimination();
     generate_new_tetro();
   }
 }
