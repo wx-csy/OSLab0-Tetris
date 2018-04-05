@@ -121,9 +121,11 @@ static int is_valid_pos() {
 
 static void generate_new_tetro() {
   current.type = rand() % 7 + 1;
-  current.row = -2;
+  current.row = -1;
   current.col = 3;
   current.rot = 0;
+  if (!is_valid_pos())
+    current.row--;
 }
 
 void tetris_key_proc() {
