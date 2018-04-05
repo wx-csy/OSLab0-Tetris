@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "graphics.h"
 #include "game.h"
 #include "resource.h"
