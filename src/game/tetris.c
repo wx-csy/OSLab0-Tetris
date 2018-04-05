@@ -144,8 +144,11 @@ static void new_tetro_group(TETRO_TYPE group[static 7]) {
   }
 }
 
-static void generate_new_tetro() {
-  current.type = rand() % 7 + 1;
+static void new_tetro() {
+  current.type = tetro_queue[next_tetro_pos];
+  next_tetro_pos = (next_tetro_pos + 1) % 14;
+  if (next_tetro_pos == 7) new_tetro_group(tetro_queue + 13);
+  if (next_tetro_pos == 0) new_tetro_group(tetro_queue + 7);
   current.row = -1;
   current.col = 3;
   current.rot = 0;
@@ -193,7 +196,7 @@ static void current_down() {
     current.row--;
     fix_current_to_grid();
     perform_elimination();
-    generate_new_tetro();
+    new_tetro();
   }
 }
 
@@ -242,13 +245,13 @@ static void tetris_key_proc() {
 uint32_t res_time;
 
 void tetris_init() {
-  generate_new_tetro();
   srand(time(NULL));
   score = 0;
   res_time = 0;
   next_tetro_pos = 0;
   new_tetro_group(tetro_queue);
   new_tetro_group(tetro_queue + 7);
+  new_tetro();
 }
 
 int speed_step = 700;
