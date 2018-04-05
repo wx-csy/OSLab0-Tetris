@@ -134,8 +134,8 @@ static void game_over() {
 }
 
 static void fix_current_to_grid() {
-  for (int i = 0; i < NUM_ROWS; i++) {
-    for (int j = 0; j < NUM_ROWS; j++) {
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < 4; j++) {
       if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
       if (current.row + i < 0) game_over();
       grid[current.row + i][current.col + j] = current.type;
