@@ -178,7 +178,7 @@ static void tetris_key_proc() {
     }
   }
   if (gIsKeyDown(G_KEY_DOWN)) { 
-    current.row++;
+    current_down();
   }
   if (gIsKeyDown(G_KEY_RSHIFT)) {
     current.rot++;
