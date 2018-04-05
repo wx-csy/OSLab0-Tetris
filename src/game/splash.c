@@ -36,6 +36,7 @@ void splash_proc() {
       gDrawString(235, 355, "Press 'C' to Start", G_WHITE); 
       if (gIsKeyDown(G_KEY_C)) {
         status = SPLASH_END;
+        tetris_init();
         current_scene_proc = game_proc;
       }
       return;

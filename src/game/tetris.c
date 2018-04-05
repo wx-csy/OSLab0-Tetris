@@ -76,20 +76,20 @@ static TETRO_TYPE grid[NUM_ROWS][NUM_COLS];
 
 static struct {
   TETRO_TYPE type;
-  int x, y;
+  int row, col;
   unsigned rot; 
 } current;
 
 static void generate_new_tetro() {
   current.type = rand() % 7 + 1;
-  current.x = 3;
-  current.y = 0;
+  current.row = 0;
+  current.col = 3;
   current.rot = 0;
 }
 
-static inline void draw_square(int offx, int offy, int x, int y,
+static inline void draw_square(int offx, int offy, int row, int col,
     TETRO_TYPE type) {
-  gFillRect(offx + x * 24 + 2, offy + y * 24 + 2, 20, 20, 
+  gFillRect(offx + col * 24 + 2, offy + row * 24 + 2, 20, 20, 
       tetro_color[type]);
 }
 
@@ -97,8 +97,8 @@ static void draw_current_tetro(int offx, int offy) {
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
       if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
-      if (is_in_playground(current.x + i, current.y + j))
-        draw_square(offx, offy, current.x + i, current.y + j,
+      if (is_in_playground(current.row + i, current.col + j))
+        draw_square(offx, offy, current.row + i, current.col + j,
             current.type);
     }
   }
@@ -113,7 +113,11 @@ static void draw_grid(int offx, int offy) {
   }
 }
 
-void game_proc() {
+void tetris_init() {
+  srand(time(NULL));
+}
+
+void tetris_proc() {
   generate_new_tetro();
   draw_grid(200, 0);
   draw_current_tetro(200, 0);
