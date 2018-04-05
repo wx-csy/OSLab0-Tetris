@@ -112,7 +112,7 @@ static int is_valid_pos() {
     for (int j = 0; j < 4; j++) {
       if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
       int row = current.row + i, col = current.col + j;
-      if (row < 0 || col < 0 || col >= NUM_COLS) return 0;
+      if (row >= NUM_ROWS || col < 0 || col >= NUM_COLS) return 0;
       if (grid[row][col] != TETRO_NONE) return 0;
     }
   }
