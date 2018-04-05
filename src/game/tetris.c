@@ -186,7 +186,7 @@ static void tetris_key_proc() {
     current.type++;
     current.type %= sizeof(tetro_color) / sizeof(gRGB_t);
   }
-  if (gIsKeyDown(G_KEY_UP)) {
+  if (gIsKeyDown(G_KEY_W)) {
     current.row--;
   }
 #endif
@@ -203,9 +203,14 @@ static void tetris_key_proc() {
     }
   }
   if (gIsKeyDown(G_KEY_DOWN)) { 
-    current_down();
+    current.rot--;
+    current.rot &= 3;
+    if (!is_valid_pos()) {
+      current.rot++;
+      current.rot &= 3;
+    }
   }
-  if (gIsKeyDown(G_KEY_RSHIFT)) {
+  if (gIsKeyDown(G_KEY_UP)) {
     current.rot++;
     current.rot &= 3;
     if (!is_valid_pos()) {
