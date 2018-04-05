@@ -69,7 +69,7 @@ uint8_t tetris_shape[8][4][4][4] = {
 #define NUM_COLS  10
 
 static inline int is_in_playground(int x, int y) {
-  return x >= 0 && x < NUM_ROWS && y >= 0 && y<= NUM_COLS;
+  return x >= 0 && x < NUM_ROWS && y >= 0 && y < NUM_COLS;
 }
 
 static TETRO_TYPE grid[NUM_ROWS][NUM_COLS];
