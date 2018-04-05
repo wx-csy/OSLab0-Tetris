@@ -116,7 +116,7 @@ static void draw_grid(int offx, int offy) {
 void tetris_key_proc() {
   if (gIsKeyDown(G_KEY_Q)) {
     current.type++;        // This is for debug only.
-    current.type %= sizeof tetro_color;
+    current.type %= sizeof(tetro_color) / sizeof(gRGB_t);
   }
   if (gIsKeyDown(G_KEY_LEFT)) {
     current.col--;
