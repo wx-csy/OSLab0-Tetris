@@ -87,15 +87,15 @@ static void generate_new_tetro() {
   current.rot = 0;
 }
 
-static inline void draw_square(int offx, int offy, int x, int y
+static inline void draw_square(int offx, int offy, int x, int y,
     TETRO_TYPE type) {
   gFillRect(offx + x * 24 + 2, offy + y * 24 + 2, 20, 20, 
       tetro_color[type]);
 }
 
 static void draw_current_tetro(int offx, int offy) {
-  for (int i = x; i < 4; i++) {
-    for (int j = y; j < y + 4; j++) {
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < y + 4; j++) {
       if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
       if (is_in_playground(current.x + i, current.y + j))
         draw_square(offx, offy, current.x + i, current.y + j,
