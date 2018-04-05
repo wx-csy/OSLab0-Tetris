@@ -128,7 +128,7 @@ static int is_valid_pos() {
 static TETRO_TYPE tetro_queue[14];
 static int next_tetro_pos;
 
-static void new_tetro_group(TETRO_TYPE group[static 7]) {
+static void new_tetro_group(TETRO_TYPE group[static 6]) {
   int value = rand() % 5040;
   int flag[7] = {0};
   for (int i = 7; i; i--) {
@@ -147,7 +147,7 @@ static void new_tetro_group(TETRO_TYPE group[static 7]) {
 static void new_tetro() {
   current.type = tetro_queue[next_tetro_pos];
   next_tetro_pos = (next_tetro_pos + 1) % 14;
-  if (next_tetro_pos == 7) new_tetro_group(tetro_queue + 16);
+  if (next_tetro_pos == 7) new_tetro_group(tetro_queue);
   if (next_tetro_pos == 0) new_tetro_group(tetro_queue + 7);
   current.row = -1;
   current.col = 3;
