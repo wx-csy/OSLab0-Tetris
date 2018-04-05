@@ -125,6 +125,26 @@ static int is_valid_pos() {
   return 1;
 }
 
+static TETRO_TYPE tetro_queue[14];
+static int next_tetro_pos;
+
+static void new_tetro_group(TETRO_TYPE group[static 7]) {
+  int value = rand() % 5040;
+  int flag[7] = {0};
+  for (int i = 7; i; i--) {
+    int n = value % i + 1; value /= i;
+    int id;
+    for (id = 0; id < 7; id++) {
+      if (flag[id] == 0) n--;
+      if (n == 0) break;
+    }
+    assert(id < 7 && flag[id] == 0);
+    flag[id] = 1;
+    group[i] = id + 1;
+next:;
+  }
+}
+
 static void generate_new_tetro() {
   current.type = rand() % 7 + 1;
   current.row = -1;
@@ -184,7 +204,7 @@ static void tetris_key_proc() {
   // These keys are for debug only.
   if (gIsKeyDown(G_KEY_Q)) {
     current.type++;
-    current.type %= sizeof(tetro_color) / sizeof(gRGB_t);
+    current.type %= 8;
   }
   if (gIsKeyDown(G_KEY_W)) {
     current.row--;
@@ -227,6 +247,8 @@ void tetris_init() {
   srand(time(NULL));
   score = 0;
   res_time = 0;
+  new_tetro_group(tetro_queue);
+  new_tetro_group(tetro_queue + 7);
 }
 
 int speed_step = 700;
