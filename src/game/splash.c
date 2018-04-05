@@ -27,13 +27,13 @@ void splash_proc() {
       alpha = alpha / CLOCKS_PER_SEC / 4;
       if (alpha > 0xff) status = SPLASH_HOLD;
       gDrawImageAA(120, 20, &img_logo, alpha);
-      gDrawImageAA(220, 150, &img_ProjectN_big, alpha);
+      gDrawImageAA(245, 150, &img_ProjectN, alpha);
       gDrawStringA(205, 380, "Product of ProjectN Gaming", 
           G_WHITE, alpha);
       return;
     case SPLASH_HOLD:
       gDrawImageA(120, 20, &img_logo);
-      gDrawImageA(220, 150, &img_ProjectN_big);
+      gDrawImageA(245, 150, &img_ProjectN);
       gDrawString(205, 380, "Product of ProjectN Gaming", G_WHITE);
       gDrawString(235, 405, "Press 'C' to Start", G_WHITE); 
       if (gIsKeyDown(G_KEY_C)) {
