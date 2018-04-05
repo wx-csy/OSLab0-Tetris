@@ -34,7 +34,10 @@ void splash_proc() {
       gDrawImageA(220, 100, &img_ProjectN_big);
       gDrawString(205, 330, "Product of ProjectN Gaming", G_WHITE);
       gDrawString(235, 355, "Press 'C' to Start", G_WHITE); 
-      if (gIsKeyPressed(G_KEY_C)) current_scene_proc = game_proc;
+      if (gIsKeyDown(G_KEY_C)) {
+        status = SPLASH_END;
+        current_scene_proc = game_proc;
+      }
       return;
     default:  assert(0);                       
   }

@@ -3,6 +3,7 @@
 #include <amdev.h>
 
 static int key_status[256];
+static int last_key_status[256];
 
 void gUpdateKeyboard(void) {
   _KbdReg reg;
@@ -13,6 +14,8 @@ void gUpdateKeyboard(void) {
 }
 
 int gIsKeyPressed(int keycode) {
-  return key_status[keycode];
+  int res = (key_status[keycode] && last_key_status[keycode]);
+  last_key_status[keycode] = key_status[keycode];
+  return res;
 }
 

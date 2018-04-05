@@ -17,7 +17,8 @@ static gRGB_t tetro_color[8] = {
   [TETRO_Z] = G_RED,
 };
 
-// This game uses the so-called "super rotation system".
+//  This game uses the so-called "super rotation system" 
+// without wall kicks.
 uint8_t tetris_shape[8][4][4][4] = {
   [TETRO_I] = {
     {{0,0,0,0}, {1,1,1,1}, {0,0,0,0}, {0,0,0,0}},
@@ -66,7 +67,7 @@ uint8_t tetris_shape[8][4][4][4] = {
 #define NUM_ROWS  20
 #define NUM_COLS  10
 
-static TETRO_TYPE grid[NUM_ROWS][NUM_COLS] = {{TETRO_Z, TETRO_T}};
+static TETRO_TYPE grid[NUM_ROWS][NUM_COLS];
 
 static void draw_grid(int x, int y) {
   for (int i = 0; i < NUM_ROWS; i++) {
