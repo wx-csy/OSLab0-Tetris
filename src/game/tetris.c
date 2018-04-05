@@ -81,13 +81,6 @@ static struct {
   unsigned rot; 
 } current;
 
-static void generate_new_tetro() {
-  current.type = rand() % 7 + 1;
-  current.row = 0;
-  current.col = 3;
-  current.rot = 0;
-}
-
 static inline void draw_square(int offx, int offy, int row, int col,
     TETRO_TYPE type) {
   gFillRect(offx + col * 24 + 2, offy + row * 24 + 2, 20, 20, 
@@ -126,6 +119,13 @@ static int is_valid_pos() {
   return 1;
 }
 
+static void generate_new_tetro() {
+  current.type = rand() % 7 + 1;
+  current.row = -2;
+  current.col = 3;
+  current.rot = 0;
+}
+
 void tetris_key_proc() {
 #define DEBUG
 #ifdef DEBUG
@@ -141,7 +141,6 @@ void tetris_key_proc() {
   if (gIsKeyDown(G_KEY_LEFT)) {
     current.col--;
     if (!is_valid_pos()) {
-      printf("Invalid!");
       current.col++;
     }
   }
@@ -149,7 +148,6 @@ void tetris_key_proc() {
     current.col++;
     if (!is_valid_pos()) {
       current.col--;
-      printf("Invalid!");
     }
   }
   if (gIsKeyDown(G_KEY_DOWN)) { 
