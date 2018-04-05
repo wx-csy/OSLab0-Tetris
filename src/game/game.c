@@ -6,6 +6,7 @@
 void (*current_scene_proc)(void);
 
 void init_game() {
+  srand(time(NULL));
   current_scene_proc = splash_proc;
 }
 
