@@ -114,11 +114,13 @@ static void draw_grid(int offx, int offy) {
 }
 
 void tetris_init() {
+  generate_new_tetro();
   srand(time(NULL));
 }
 
 void tetris_proc() {
   generate_new_tetro();
+  gDrawRect(200, 0, 439, 479, G_WHITE);
   draw_grid(200, 0);
   draw_current_tetro(200, 0);
 }
