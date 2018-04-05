@@ -25,7 +25,7 @@ void splash_proc() {
     case SPLASH_RUNNING:
       alpha = (uint32_t)(c_now - c_start) * 256;
       alpha = alpha / CLOCKS_PER_SEC / 4;
-      if (alpha > 0xff || gIsKeyPressed(G_KEY_ENTER))
+      if (alpha > 0xff || gIsKeyPressed(G_KEY_RETURN))
         status = SPLASH_HOLD;
       gDrawImageAA(120, 20, &img_logo, alpha);
       gDrawImageAA(245, 150, &img_ProjectN, alpha);
