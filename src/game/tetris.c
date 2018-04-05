@@ -113,12 +113,29 @@ static void draw_grid(int offx, int offy) {
   }
 }
 
+void tetris_key_proc() {
+  if (gIsKeyDown(G_KEY_LEFT)) {
+    current.col--;
+  }
+  if (gIsKeyDown(G_KEY_RIGHT)) {
+    current.col++;
+  }
+  if (gIsKeyDown(G_KEY_DOWN)) {
+    current.row++;
+  }
+  if (gIsKeyDown(G_KEY_UP)) {
+    current.rot++;
+    current.rot &= 3;
+  }
+}
+
 void tetris_init() {
   generate_new_tetro();
   srand(time(NULL));
 }
 
 void tetris_proc() {
+  tetris_key_proc();
   generate_new_tetro();
   gDrawRect(200, 0, 439, 479, G_WHITE);
   draw_grid(200, 0);
