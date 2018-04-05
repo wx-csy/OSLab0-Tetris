@@ -113,12 +113,13 @@ static void draw_grid(int offx, int offy) {
   }
 }
 
-#define DEBUG
 
 void tetris_key_proc() {
+#define DEBUG
 #ifdef DEBUG
+  // These keys are for debug only.
   if (gIsKeyDown(G_KEY_Q)) {
-    current.type++;        // This is for debug only.
+    current.type++;
     current.type %= sizeof(tetro_color) / sizeof(gRGB_t);
   }
   if (gIsKeyDown(G_KEY_UP)) {
