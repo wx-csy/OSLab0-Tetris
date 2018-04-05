@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "graphics.h"
 #include "game.h"
 
@@ -113,6 +114,17 @@ static void draw_grid(int offx, int offy) {
   }
 }
 
+static int is_valid_pos() {
+  for (int i = 0; i < 4; i++) {
+    for (int j = 0; j < 4; j++) {
+      if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
+      int row = current.row + i, col = current.col + i;
+      if (row < 0 || col < 0 || col >= NUM_COLS) return 0;
+      if (grid[row][col] != TETRO_NONE) return 0;
+    }
+  }
+  return 1;
+}
 
 void tetris_key_proc() {
 #define DEBUG
@@ -128,16 +140,28 @@ void tetris_key_proc() {
 #endif
   if (gIsKeyDown(G_KEY_LEFT)) {
     current.col--;
+    if (!is_valid_pos()) {
+      printf("Invalid!");
+      current.col++;
+    }
   }
   if (gIsKeyDown(G_KEY_RIGHT)) {
     current.col++;
+    if (!is_valid_pos()) {
+      current.col--;
+      printf("Invalid!");
+    }
   }
-  if (gIsKeyDown(G_KEY_DOWN)) {
+  if (gIsKeyDown(G_KEY_DOWN)) { 
     current.row++;
   }
   if (gIsKeyDown(G_KEY_RSHIFT)) {
     current.rot++;
     current.rot &= 3;
+    if (!is_valid_pos()) {
+      current.rot--;
+      current.rot &= 3;
+    }
   }
 }
 
