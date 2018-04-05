@@ -147,6 +147,7 @@ static void fix_current_to_grid() {
 static void current_down() {
   current.row++;
   if (!is_valid_pos()) {
+    current.row--;
     fix_current_to_grid();
     generate_new_tetro();
   }
