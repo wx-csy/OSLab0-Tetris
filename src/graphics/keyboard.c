@@ -14,6 +14,10 @@ void gUpdateKeyboard(void) {
 }
 
 int gIsKeyPressed(int keycode) {
+  return key_status[keycode];
+}
+
+int gIsKeyDown(int keycode) {
   int res = (key_status[keycode] && last_key_status[keycode]);
   last_key_status[keycode] = key_status[keycode];
   return res;
