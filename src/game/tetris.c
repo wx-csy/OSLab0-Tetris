@@ -140,7 +140,7 @@ static void new_tetro_group(TETRO_TYPE group[static 7]) {
     }
     assert(id < 7 && flag[id] == 0);
     flag[id] = 1;
-    group[i] = id + 1;
+    group[i - 1] = id + 1;
   }
 }
 
