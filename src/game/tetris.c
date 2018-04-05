@@ -137,7 +137,7 @@ static void fix_current_to_grid() {
   for (int i = 0; i < NUM_ROWS; i++) {
     for (int j = 0; j < NUM_ROWS; j++) {
       if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
-      if (currwnt.row + i < 0) game_over();
+      if (current.row + i < 0) game_over();
       grid[current.row + i][current.col + j] = current.type;
     }
   }
@@ -188,12 +188,10 @@ static void tetris_key_proc() {
   }
 }
 
-uint32_t res_time;
 
 void tetris_init() {
   generate_new_tetro();
   srand(time(NULL));
-  last_clock = clock();
   res_time = 0;
 }
 
