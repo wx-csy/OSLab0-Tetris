@@ -37,7 +37,7 @@ void splash_proc() {
       if (gIsKeyDown(G_KEY_C)) {
         status = SPLASH_END;
         tetris_init();
-        current_scene_proc = game_proc;
+        current_scene_proc = tetris_proc;
       }
       return;
     default:  assert(0);                       
