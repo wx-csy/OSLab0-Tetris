@@ -158,6 +158,7 @@ static void perform_elimination() {
         grid[ii][j] = grid[ii-1][j];
     for (int j = 0; j < NUM_COLS; j++)
       grid[0][j] = TETRO_NONE;
+    i++;
 next:;
   }
   assert(elim_count <= 4);
