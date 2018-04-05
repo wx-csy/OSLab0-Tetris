@@ -88,6 +88,8 @@ static inline void draw_square(int offx, int offy, int row, int col,
     TETRO_TYPE type) {
   gFillRect(offx + col * 24 + 2, offy + row * 24 + 2, 20, 20, 
       tetro_color[type]);
+  gDrawRect(offx + col * 24 + 2, offy + row * 24 + 2,
+      offx + col * 24 + 21, offy + row * 24 + 21, G_GRAY);
 }
 
 static void draw_current_tetro(int offx, int offy) {
