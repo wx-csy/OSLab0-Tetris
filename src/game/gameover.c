@@ -17,12 +17,12 @@ static clock_t c_start;
 static const gImage_t img_screenshot = {640, 480, 4, screenshot};
 
 void gameover_proc() {
-  clock_t c_now = clock();
   uint32_t alpha;
   if (status == GAMEOVER_NOT_START) {
       c_start = clock();
       status = GAMEOVER_RUNNING;
   } 
+  clock_t c_now = clock();
   alpha = (uint32_t)(c_now - c_start) * 256;
   alpha = alpha / CLOCKS_PER_SEC / 4;
   if (status == GAMEOVER_RUNNING && alpha > 0xff)
