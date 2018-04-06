@@ -17,7 +17,7 @@ static clock_t c_start;
 static const gImage_t img_screenshot = {640, 480, 4, screenshot};
 
 static const gColorMatrix mat_identity = 
-  {{0xff, 0, 0}, {0xff, 0, 0}, {0xff, 0, 0}};
+  {{0xff, 0, 0}, {0, 0xff, 0}, {0, 0, 0xff}};
 
 static const gColorMatrix mat_gray = 
   {{86, 86, 86}, {86, 86, 86}, {86, 86, 86}};
