@@ -1,4 +1,5 @@
-#include <graphics.h>
+#include <stdio.h>
+#include "graphics.h"
 
 int gDrawImageA(int x, int y, const gImage_t *image) {
   const uint8_t *data = image->pixel_data;
@@ -54,6 +55,7 @@ int gDrawImageAA(int x, int y, const gImage_t *image, uint8_t alpha) {
             gChannelBlend(fb, gRGB_blue(pixel), fa)
           ));
     }
+    printf("%s: alpha=%x\n", __func__, alpha);
   }
   return 0;
 }
