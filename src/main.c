@@ -14,7 +14,7 @@ int main() {
   time_t cur_time = time(NULL);
   printf("Current calender time is: %s\n", ctime(&cur_time));
   
-  for (volatile int i = 0; i < 200000000; i++);
+  for (volatile int i = 0; i < 100000000; i++);
   
   srand(time(NULL));
   gInit();
