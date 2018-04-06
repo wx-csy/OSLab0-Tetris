@@ -274,7 +274,7 @@ void tetris_init() {
   new_tetro();
 }
 
-int speed_step = 200;
+static int speed_step = 250;
 
 void tetris_proc() {
   tetris_key_proc();
