@@ -64,7 +64,7 @@ void gCreateScreenshot(int x, int y, int width, int height, uint8_t *buf) {
       *(buf++) = gRGB_red(pixel);
       *(buf++) = gRGB_green(pixel);
       *(buf++) = gRGB_blue(pixel);
-      *(buf++) = pixel >> 24;
+      *(buf++) = 0xff;
     }
   }
 }
