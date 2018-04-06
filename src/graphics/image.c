@@ -69,7 +69,7 @@ int gDrawImageM(int x, int y, const gImage_t *image,
       data++; 
       gRGB_t pixel = gRGB(fr, fg, fb);
       if (pixel != last_pixel) {
-        transformed_color = gColorMatrixTranform(pixel, matrix);
+        transformed_color = gColorMatrixTransform(pixel, matrix);
         last_pixel = pixel;
       }
       gSetPixel(i, j, transformed_color);
