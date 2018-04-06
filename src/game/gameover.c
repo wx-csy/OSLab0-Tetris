@@ -10,7 +10,7 @@
 #define GAMEOVER_HOLD       2
 #define GAMEOVER_END        3
 
-static int status = SPLASH_NOT_START;
+static int status = GAMEOVER_NOT_START;
 
 static clock_t c_start;
 
