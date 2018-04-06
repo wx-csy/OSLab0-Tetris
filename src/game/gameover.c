@@ -29,7 +29,7 @@ void gameover_proc() {
       alpha = alpha / CLOCKS_PER_SEC / 4;
       if (alpha > 0xff) status = GAMEOVER_HOLD;
       gDrawImageAA(0, 0, &img_screenshot, 0xff - alpha);
-//      gDrawImageAA(80, 171, &img_gameover, alpha);
+      gDrawImageAA(80, 171, &img_gameover, alpha);
       return;
     case GAMEOVER_HOLD:
       gDrawImageA(80, 171, &img_gameover);
