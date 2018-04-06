@@ -39,7 +39,7 @@ void gameover_proc() {
       for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
           mat[i][j] = 
-            gChannelBlend(mat_gray[i][j], mat_identitiy[i][j], alpha);
+            gChannelBlend(mat_gray[i][j], mat_identity[i][j], alpha);
         }
       }
       gDrawImageA2(0, 0, &img_screenshot, 0xff - alpha);
