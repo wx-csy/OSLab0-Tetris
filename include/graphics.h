@@ -93,9 +93,26 @@ typedef struct gImage_t {
   const uint8_t *pixel_data;
 } gImage_t;
 
+typedef uint8_t gColorMatrix[3][3];
+
+static inline gRGB_t gColorMatrixTransform(gRGB_t color, 
+    const gColorMatrix matrix) {
+  uint32_t sr = gRGB_red(color), sg = gRGB_green(color), 
+           sb = gRGB_blue(color);
+  uint32_t tr = sr * matrix[0][0] + sg * matrix[1][0] + sb * matrix[2][0],
+           tg = sr * matrix[0][1] + sg * matrix[1][1] + sb * matrix[2][1],
+           tb = sr * matrix[0][2] + sg * matrix[1][2] + sb * matrix[2][2];
+  tr >>= 8; if (tr > 0xff) tr = 0xff;
+  tg >>= 8; if (tg > 0xff) tg = 0xff;
+  tb >>= 8; if (tb > 0xff) tb = 0xff;
+  return gRGB(tr, tg, tb);
+}
+
 int gDrawImageA(int x, int y, const gImage_t *image);
 int gDrawImageA2(int x, int y, const gImage_t *image, uint8_t alpha);
 int gDrawImageAA(int x, int y, const gImage_t *image, uint8_t alpha);
+int gDrawImageM(int x, int y, const gImage_t *image, 
+    const gColorMatrix matrix);
 
 #define _G_KEY_NAME(k) G_KEY_##k,
 enum gKeyCode {
