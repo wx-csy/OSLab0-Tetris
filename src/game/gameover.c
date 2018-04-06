@@ -19,15 +19,15 @@ static const gImage_t img_screenshot = {640, 480, 4, screenshot};
 void gameover_proc() {
   clock_t c_now = clock();
   uint32_t alpha;
+  if (status == GAMEOVER_NOT_START) {
+      c_start = clock();
+      status = GAMEOVER_RUNNING;
+  } 
   alpha = (uint32_t)(c_now - c_start) * 256;
   alpha = alpha / CLOCKS_PER_SEC / 4;
   if (status == GAMEOVER_RUNNING && alpha > 0xff)
     status = GAMEOVER_HOLD;
   switch (status) {
-    case GAMEOVER_NOT_START: 
-      c_start = clock();
-      status = GAMEOVER_RUNNING;
-      return;
     case GAMEOVER_RUNNING:
       gDrawImageA2(0, 0, &img_screenshot, 0xff - alpha);
       gDrawImageAA(80, 171, &img_gameover, alpha);

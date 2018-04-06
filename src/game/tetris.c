@@ -181,6 +181,7 @@ static void fix_current_to_grid() {
       if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
       if (current.row + i < 0) { // game over
         status = TETRIS_GAMEOVER;
+        return;
       }
       grid[current.row + i][current.col + j] = current.type;
     }
@@ -217,7 +218,7 @@ static void current_down() {
 }
 
 static void tetris_key_proc() {
-#define DEBUG
+// #define DEBUG
 #ifdef DEBUG
   // These keys are for debug only.
   if (gIsKeyDown(G_KEY_Q)) {
