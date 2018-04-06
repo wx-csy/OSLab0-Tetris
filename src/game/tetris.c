@@ -4,6 +4,12 @@
 #include "graphics.h"
 #include "game.h"
 
+#define TETRIS_NOT_START    0
+#define TETRIS_RUNNING      1
+#define TETRIS_GAMEOVER     2
+
+static int status = TETRIS_NOT_START;
+
 typedef enum TETRO_TYPE {
   TETRO_NONE,
   TETRO_I, TETRO_J, TETRO_L, TETRO_O, TETRO_S, TETRO_T, TETRO_Z
@@ -161,8 +167,7 @@ static void fix_current_to_grid() {
     for (int j = 0; j < 4; j++) {
       if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
       if (current.row + i < 0) { // game over
-        gCreateScreenshot(0, 0, 640, 480, screenshot);
-        current_scene_proc = gameover_proc;
+        status = TETRIS_GAMEOVER;
       }
       grid[current.row + i][current.col + j] = current.type;
     }
@@ -246,6 +251,7 @@ static void tetris_key_proc() {
 uint32_t res_time;
 
 void tetris_init() {
+  status = TETRIS_RUNNING;
   srand(time(NULL));
   score = 0;
   res_time = 0;
@@ -270,5 +276,9 @@ void tetris_proc() {
   char score_str[32];
   sprintf(score_str,"Score: %u", score);
   gDrawString(20, 40, score_str, G_WHITE);
+  if (status == TETRIS_GAMEOVER) {
+    gCreateScreenshot(0, 0, 640, 480, screenshot);
+    current_scene_proc = gameover_proc;
+  }
 }
 
