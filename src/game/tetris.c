@@ -286,7 +286,8 @@ void tetris_proc() {
     current_down();
   }
   gDrawRect(200, 0, 439, 479, G_WHITE);
-  gDrawImageAA(245, 165, &img_ProjectN, 100);
+  gDrawImageAA(120, 20, &img_logo, 80);
+  gDrawImageAA(245, 165, &img_ProjectN, 80);
   draw_grid(200, 0);
   draw_current_tetro(200, 0);
   draw_next();
