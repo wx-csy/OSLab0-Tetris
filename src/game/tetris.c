@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "graphics.h"
+#include "resource.h"
 #include "game.h"
 
 #define TETRIS_NOT_START    0
@@ -285,6 +286,7 @@ void tetris_proc() {
     current_down();
   }
   gDrawRect(200, 0, 439, 479, G_WHITE);
+  gDrawImageAA(245, 165, &img_ProjectN, 100);
   draw_grid(200, 0);
   draw_current_tetro(200, 0);
   draw_next();
