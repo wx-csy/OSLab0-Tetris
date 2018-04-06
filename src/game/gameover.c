@@ -20,7 +20,7 @@ static const gColorMatrix mat_identity =
   {{0xff, 0, 0}, {0, 0xff, 0}, {0, 0, 0xff}};
 
 static const gColorMatrix mat_gray = 
-  {{86, 86, 86}, {86, 86, 86}, {86, 86, 86}};
+  {{84, 150, 28}, {84, 150, 28}, {84, 150, 28}};
 
 void gameover_proc() {
   uint32_t alpha;
