@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <time.h>
 #include <assert.h>
 #include "graphics.h"
@@ -25,16 +24,17 @@ void splash_proc() {
     case SPLASH_RUNNING:
       alpha = (uint32_t)(c_now - c_start) * 256;
       alpha = alpha / CLOCKS_PER_SEC / 3;
-      printf("c_now = %d, c_start = %d, alpha = %x\n", 
-          (int)c_now, (int)c_start, alpha);
-      if (alpha > 0xff || gIsKeyPressed(G_KEY_RETURN))
+      if (alpha > 0xff || gIsKeyPressed(G_KEY_RETURN)) {
         status = SPLASH_HOLD;
+        goto hold;
+      }
       gDrawImageAA(120, 20, &img_logo, alpha);
       gDrawImageAA(245, 165, &img_ProjectN, alpha);
       gDrawStringA(210, 350, "Product of ProjectN Gaming", 
           G_WHITE, alpha);
       return;
     case SPLASH_HOLD:
+hold:
       gDrawImageA(120, 20, &img_logo);
       gDrawImageA(245, 165, &img_ProjectN);
       gDrawString(210, 350, "Product of ProjectN Gaming", G_WHITE);
