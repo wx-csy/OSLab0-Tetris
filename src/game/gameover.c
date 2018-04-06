@@ -16,7 +16,10 @@ static clock_t c_start;
 
 static const gImage_t img_screenshot = {640, 480, 4, screenshot};
 
-static const gColorMatrix mat_bw = 
+static const gColorMatrix mat_identity = 
+  {{0xff, 0, 0}, {0xff, 0, 0}, {0xff, 0, 0}};
+
+static const gColorMatrix mat_gray = 
   {{86, 86, 86}, {86, 86, 86}, {86, 86, 86}};
 
 void gameover_proc() {
@@ -36,7 +39,7 @@ void gameover_proc() {
       gDrawImageAA(80, 171, &img_gameover, alpha);
       return;
     case GAMEOVER_HOLD:
-      gDrawImageM(0, 0, &img_screenshot, mat_bw);    
+      gDrawImageM(0, 0, &img_screenshot, mat_gray);
       gDrawImageA(80, 171, &img_gameover);
       return;
     default:  assert(0);                       
