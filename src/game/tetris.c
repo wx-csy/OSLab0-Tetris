@@ -134,6 +134,19 @@ static int is_valid_pos() {
 static TETRO_TYPE tetro_queue[14];
 static int next_tetro_pos;
 
+static void draw_next() {
+  gDrawString(530, 50, "NEXT", G_WHITE);
+  for (int p = 0; p < 6; p++) {
+    int id = (p + next_tetro_pos) % 14;
+    for (int i = 0; i < 4; i++) {
+      for (int j = 0; j < 4; j++) {
+        if (tetris_shape[tetro_queue[id]][0][i][j] == 0) continue;
+          draw_square(500, 100, p * 3 + i, j, tetro_queue[id]);
+      }
+    } 
+  }
+}
+
 static void new_tetro_group(TETRO_TYPE group[static 7]) {
   int value = rand() % 5040;
   int flag[7] = {0};
@@ -273,6 +286,7 @@ void tetris_proc() {
   gDrawRect(200, 0, 439, 479, G_WHITE);
   draw_grid(200, 0);
   draw_current_tetro(200, 0);
+  draw_next();
   char score_str[32];
   sprintf(score_str,"Score: %u", score);
   gDrawString(20, 40, score_str, G_WHITE);
