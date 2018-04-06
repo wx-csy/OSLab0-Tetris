@@ -94,6 +94,7 @@ typedef struct gImage_t {
 } gImage_t;
 
 int gDrawImageA(int x, int y, const gImage_t *image);
+int gDrawImageA2(int x, int y, const gImage_t *image, uint8_t alpha);
 int gDrawImageAA(int x, int y, const gImage_t *image, uint8_t alpha);
 
 #define _G_KEY_NAME(k) G_KEY_##k,
