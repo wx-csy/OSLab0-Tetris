@@ -2,4 +2,5 @@
 
 extern const gImage_t img_ProjectN;
 extern const gImage_t img_logo;
+extern const gImage_t img_gameover;
 

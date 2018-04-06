@@ -19,6 +19,7 @@ extern struct gVideoInfo_t {
 int gInit(void);
 
 void gRender(void);
+void gCreateScreenshot(int x, int y, int width, int height, uint8_t *buf);
 int gGetFPS(void);
 uint32_t gGetFrameTime(void);
 
