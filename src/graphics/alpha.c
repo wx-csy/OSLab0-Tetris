@@ -1,3 +1,4 @@
+#include "graphics.h"
 
 uint8_t _gAlphaTable[256][256][256];
 
