@@ -135,13 +135,13 @@ static TETRO_TYPE tetro_queue[14];
 static int next_tetro_pos;
 
 static void draw_next() {
-  gDrawString(530, 50, "NEXT", G_WHITE);
+  gDrawString(520, 20, "NEXT", G_WHITE);
   for (int p = 0; p < 6; p++) {
     int id = (p + next_tetro_pos) % 14;
     for (int i = 0; i < 4; i++) {
       for (int j = 0; j < 4; j++) {
         if (tetris_shape[tetro_queue[id]][0][i][j] == 0) continue;
-          draw_square(500, 100, p * 3 + i, j, tetro_queue[id]);
+          draw_square(500, 50, p * 3 + i, j, tetro_queue[id]);
       }
     } 
   }
