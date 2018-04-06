@@ -4,6 +4,8 @@
 
 void (*current_scene_proc)(void);
 
+uint8_t screenshot[640 * 480 * 4];
+
 void init_game() {
   current_scene_proc = splash_proc;
 }

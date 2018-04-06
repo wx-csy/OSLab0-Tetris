@@ -160,8 +160,9 @@ static void fix_current_to_grid() {
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
       if (tetris_shape[current.type][current.rot][i][j] == 0) continue;
-      if (current.row + i < 0) {
-        current_scene_proc = gameover_proc; // game over
+      if (current.row + i < 0) { // game over
+        gCreateScreenshot(0, 0, 640, 480, screenshot);
+        current_scene_proc = gameover_proc;
       }
       grid[current.row + i][current.col + j] = current.type;
     }
