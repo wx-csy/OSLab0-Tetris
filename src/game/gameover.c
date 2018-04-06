@@ -42,7 +42,7 @@ void gameover_proc() {
             gChannelBlend(mat_gray[i][j], mat_identity[i][j], alpha);
         }
       }
-      gDrawImageA2(0, 0, &img_screenshot, 0xff - alpha);
+      gDrawImageM(0, 0, &img_screenshot, mat);
       gDrawImageAA(80, 171, &img_gameover, alpha);
       return;
     case GAMEOVER_HOLD:
