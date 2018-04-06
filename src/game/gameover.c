@@ -26,10 +26,10 @@ void gameover_proc() {
       alpha = (uint32_t)(c_now - c_start) * 256;
       alpha = alpha / CLOCKS_PER_SEC / 4;
       if (alpha > 0xff) status = GAMEOVER_HOLD;
-      gDrawImageAA(120, 20, &img_gameover, alpha);
+      gDrawImageAA(80, 171, &img_gameover, alpha);
       return;
     case GAMEOVER_HOLD:
-      gDrawImageA(120, 20, &img_gameover);
+      gDrawImageA(80, 171, &img_gameover);
       return;
     default:  assert(0);                       
   }
