@@ -30,7 +30,6 @@ int gInit() {
     }
   }
   if (dev_video == NULL || dev_input == NULL) return -1;
-  _gInitAlphaTable();
   return 0;
 }
 
