@@ -61,10 +61,10 @@ void gCreateScreenshot(int x, int y, int width, int height, uint8_t *buf) {
   for (int j = y; j < y + height; j++) {
     for (int i = x; i < x + width; i++) {
       uint32_t pixel = gGetPixel(i, j);
-      *(buf++) = pixel >> 24;
       *(buf++) = gRGB_red(pixel);
       *(buf++) = gRGB_green(pixel);
       *(buf++) = gRGB_blue(pixel);
+      *(buf++) = pixel >> 24;
     }
   }
 }
