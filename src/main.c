@@ -12,7 +12,7 @@ int main() {
   
   test();
   time_t cur_time = time(NULL);
-  printf("Current calender time is: %s\n", ctime(&cur_time));
+  printf("Current calendar time is: %s\n", ctime(&cur_time));
   
   for (volatile int i = 0; i < 100000000; i++);
   
