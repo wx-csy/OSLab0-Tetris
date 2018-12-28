@@ -67,13 +67,13 @@ static inline gRGB_t gColorBlend(gRGB_t fore, gRGB_t back,
 #define G_GRAY      0x7f7f7f
 
 static inline void gSetPixel(int x, int y, gRGB_t color) {
-  if (x < gVideoInfo->width && y <= gVideoInfo->height &&
+  if (x < gVideoInfo->width && y < gVideoInfo->height &&
       x >= 0 && y >= 0)
     _gPixel(x, y) = color;
 }
 
 static inline gRGB_t gGetPixel(int x, int y) {
-  if (x < gVideoInfo->width && y <= gVideoInfo->height &&
+  if (x < gVideoInfo->width && y < gVideoInfo->height &&
       x >= 0 && y >= 0)
     return _gPixel(x, y);
   else
